@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaPBaseDao">
+
+    <sql id="iaPBaseColumns">
+		a.pid AS "pid",
+		a.pname AS "pname",
+		a.fpath AS "fpath",
+		a.disc AS "disc"
+	</sql>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaPBase">
+        SELECT <include refid="iaPBaseColumns"/>
+        FROM IA_P_Base a
+        WHERE a.adcd = #{adcd}
+    </select>
+
+    <!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaPBase">
+        SELECT
+        <include refid="iaPBaseColumns"/>
+        FROM IA_P_Base a
+        <where>
+
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_P_Base(
+			pid,
+			pname,
+			fpath,
+			disc
+		) VALUES (
+			#{pid},
+			#{pname},
+			#{fpath},
+			#{disc}
+		)
+	</insert>
+
+    <update id="delete">
+		DELETE FROM IA_P_Base
+		WHERE pid = #{pid}
+	</update>
+</mapper>

@@ -1,0 +1,17 @@
+##ignore this file##
+/target/
+.classpath
+.project
+.settings
+/.idea/
+*.class
+#some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+out/
+/.apt_generated/
+/jar/
+

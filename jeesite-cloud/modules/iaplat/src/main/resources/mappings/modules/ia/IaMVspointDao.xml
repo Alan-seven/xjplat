@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaMVspointDao">
+
+    <sql id="iaMVspointColumns">
+        a.id AS "id",
+		a.vecd AS "vecd",
+		a.pname AS "pname",
+		a.cdistance AS "cdistance",
+		a.channel AS "channel",
+		a.ele AS "ele",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.cltype AS "cltype",
+		a.audid AS "audid",
+		a.remark AS "remark",
+		a.moditime AS "moditime"
+	</sql>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaMVspoint">
+        SELECT <include refid="iaMVspointColumns"/>
+        FROM IA_M_VSPOINT a
+        WHERE a.id = #{id} and vecd = #{vecd}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMVspoint">
+        SELECT
+        <include refid="iaMVspointColumns"/>
+        FROM IA_M_VSPOINT a
+        <where>
+            1=1
+            <if test="vecd != null and vecd != ''">
+                AND a.vecd = #{vecd}
+            </if>
+            <if test="pname !=null and pname != ''">
+                and a.pname like '%'+#{pname}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_M_VSPOINT(
+			id,
+			vecd,
+			pname,
+			cdistance,
+			channel,
+			ele,
+			lgtd,
+			lttd,
+			cltype,
+			audid,
+			remark
+		) VALUES (
+			#{id},
+			#{vecd},
+			#{pname},
+			#{cdistance},
+			#{channel},
+			#{ele},
+			#{lgtd},
+			#{lttd},
+			#{cltype},
+			#{audid},
+			#{remark}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_M_VSPOINT SET
+		pname = #{pname},
+		cdistance = #{cdistance},
+		channel = #{channel},
+		ele = #{ele},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		cltype = #{cltype},
+		audid = #{audid}
+		WHERE id = #{id} and vecd = #{vecd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_M_VSPOINT
+		WHERE id = #{id} and vecd = #{vecd}
+	</update>
+</mapper>

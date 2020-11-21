@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaZDroughtDao">
+
+    <sql id="iaZDroughtColumns">
+		a.dcd AS "dcd",
+		a.dname AS "dname",
+		a.location AS "location",
+		a.startdate AS "startdate",
+		a.enddate AS "enddate",
+		a.dyp AS "dyp",
+		a.avgd AS "avgd",
+		a.avgtmp AS "avgtmp",
+		a.z AS "z",
+		a.q AS "q",
+		a.w AS "w",
+		a.sarea AS "sarea",
+		a.carea AS "carea",
+		a.elose AS "elose",
+		a.lgtd AS "lgtd",
+		a.lgtd AS "lttd",
+		a.remark AS "remark"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IaZDrought" id="iamZDroughtResult">
+        <id property="dcd" column="dcd" />
+        <result property="dname" column="dname" />
+        <result property="location" column="location" />
+        <result property="startdate" column="startdate" />
+        <result property="enddate" column="enddate" />
+        <result property="dyp" column="dyp" />
+        <result property="avgd" column="avgd" />
+        <result property="avgtmp" column="avgtmp" />
+        <result property="z" column="z" />
+        <result property="q" column="q" />
+        <result property="w" column="w" />
+        <result property="sarea" column="sarea" />
+        <result property="carea" column="carea" />
+        <result property="elose" column="elose" />
+        <result property="lgtd" column="lgtd" />
+        <result property="lttd" column="lttd" />
+        <result property="remark" column="remark" />
+        <collection property="pbaseList" ofType="com.jeesite.modules.ia.entity.IaPBase" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZDrought" resultMap = "iamZDroughtResult">
+        SELECT
+        <include refid="iaZDroughtColumns"/>
+        ,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+        FROM IA_Z_DROUGHT a
+        left join REL_P_DROUGHT d on a.dcd = d.dcd
+        left join IA_P_BASE p on d.pid = p.pid
+        <where>
+            1=1
+            <if test="dname != null and dname != ''">
+                and a.dname like '%'+#{dname}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.startdate
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_Z_DROUGHT(
+			dcd,
+			dname ,
+			location,
+			startdate,
+			enddate,
+			dyp,
+			avgd,
+			avgtmp,
+            z ,
+            q ,
+            w,
+            sarea,
+            carea,
+            elose,
+            lgtd,
+            lttd,
+            remark
+		) VALUES (
+			#{dcd},
+			#{dname},
+			#{location},
+			#{startdate},
+			#{enddate},
+			#{dyp},
+			#{avgd},
+			#{avgtmp},
+			#{z},
+			#{q},
+			#{w},
+			#{sarea},
+			#{carea},
+			#{elose},
+			#{lgtd},
+			#{lttd},
+			#{remark}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_Z_DROUGHT SET
+		dname = #{dname},
+		location = #{location},
+		startdate = #{startdate},
+		enddate = #{enddate},
+		dyp = #{dyp},
+		avgd = #{avgd},
+		avgtmp = #{avgtmp},
+		mxatmp = #{mxatmp},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		z = #{z},
+		q = #{q},
+		w = #{w},
+		sarea = #{sarea},
+		elose = #{elose},
+		carea = #{carea},
+		remark = #{remark}
+		WHERE dcd = #{dcd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_Z_DROUGHT
+		WHERE dcd = #{dcd}
+	</update>
+</mapper>

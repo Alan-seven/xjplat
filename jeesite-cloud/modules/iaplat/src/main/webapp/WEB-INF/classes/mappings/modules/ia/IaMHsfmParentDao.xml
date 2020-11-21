@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaMHsfmParentDao">
+
+    <sql id="iaMHsfmParentColumns">
+		a.fmcd AS "fmcd",
+		a.channel AS "channel",
+		a.address AS "address",
+		a.adcd AS "adcd",
+		a.method AS "method",
+		a.isctown AS "isctown"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IaMHsfmParent" id="iaMHsfmParentResult">
+        <id property="fmcd" column="fmcd" />
+        <result property="adcd" column="adcd" />
+        <result property="channel" column="channel" />
+        <result property="method" column="method" />
+        <result property="isctown" column="isctown" />
+        <result property="address" column="address" />
+        <result property="adnm" column="adnm" />
+        <collection property="pinfoList" ofType="com.jeesite.modules.ia.entity.IAPInfo" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaMHsfmParent">
+        SELECT <include refid="iaMHsfmParentColumns"/>
+        FROM IA_M_HSFM_PARENT a
+        WHERE a.fmcd = #{fmcd}
+    </select>
+
+    <!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMHsfmParent" resultMap="iaMHsfmParentResult">
+        SELECT
+        <include refid="iaMHsfmParentColumns"/>,
+        info.adnm AS "adnm"
+        FROM IA_M_HSFM_PARENT a
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        left join rel_p_hsfm b on a.fmcd = b.fmcd
+        left join IA_P_INFO v on b.pid = v.pid
+        <where>
+            1=1
+            <if test="channel != null and channel != ''">
+                AND a.channel like #{channel}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.adcd
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_M_HSFM_PARENT(
+			fmcd,
+			channel,
+			address,
+			adcd,
+			method,
+			isctown
+		) VALUES (
+			#{fmcd},
+			#{channel},
+			#{address},
+			#{adcd},
+			#{method},
+			#{isctown}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_M_HSFM_PARENT SET
+		channel = #{channel},
+		address = #{address},
+		adcd = #{adcd},
+		method = #{method},
+		isctown = #{isctown}
+		WHERE fmcd = #{fmcd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_M_HSFM_PARENT
+		WHERE fmcd = #{fmcd}
+	</update>
+</mapper>

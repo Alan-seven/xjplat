@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IACAdinfoDao">
+
+	<sql id="iacAdinfoColumns">
+		a.adcd AS "adcd",
+		a.adnm AS "adnm",
+		a.pcount AS "pcount",
+		a.htcount AS "htcount",
+		a.ldarea AS "ldarea",
+		a.plarea AS "plarea",
+		a.prevtp AS "prevtp",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.comments AS "comments"
+	</sql>
+
+	<select id="get" resultType="com.jeesite.modules.ia.entity.IACAdinfo">
+		SELECT <include refid="iacAdinfoColumns"/>
+		FROM IA_C_ADINFO a
+		WHERE a.adcd = #{adcd}
+	</select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+	<select id="findList" resultType="com.jeesite.modules.ia.entity.IACAdinfo">
+		SELECT
+		<include refid="iacAdinfoColumns"/>
+		FROM IA_C_ADINFO a
+		<where>
+			1=1
+			<if test="adcd != null and adcd != ''">
+				AND a.adcd = #{adcd}
+			</if>
+			<if test="adnm !=null and adnm != ''">
+				and a.adnm like '%'+#{adnm}+'%'
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.moditime
+			</otherwise>
+		</choose>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO IA_C_ADINFO(
+			adcd,
+			adnm,
+			pcount,
+			htcount,
+			ldarea,
+			plarea,
+			prevtp,
+			lgtd,
+			lttd,
+			signer,
+			audid,
+			status,
+			comments
+		) VALUES (
+			#{adcd},
+			#{adnm},
+			#{pcount},
+			#{htcount},
+			#{ldarea},
+			#{plarea},
+			#{prevtp},
+			#{lgtd},
+			#{lttd},
+			#{signer},
+			#{audid},
+			#{status},
+			#{comments}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE IA_C_ADINFO SET
+		adnm = #{adnm},
+		pcount = #{pcount},
+		htcount = #{htcount},
+		ldarea = #{ldarea},
+		plarea = #{plarea},
+		prevtp = #{prevtp},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status},
+		comments = #{comments}
+		WHERE adcd = #{adcd}
+	</update>
+
+	<update id="delete">
+		DELETE FROM IA_C_ADINFO
+		WHERE adcd = #{adcd}
+	</update>
+</mapper>

@@ -1,0 +1,16 @@
+##ignore this file##
+/bin/
+/target/
+.classpath
+.project
+.settings
+/.idea/
+*.class
+#some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+/.apt_generated/
+jeesite-cloud-gateway.iml

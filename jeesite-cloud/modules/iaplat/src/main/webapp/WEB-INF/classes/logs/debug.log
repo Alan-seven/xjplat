@@ -1,0 +1,406 @@
+2020-11-21 12:39:49.968 WARN  16140 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat] & group[jeesite-cloud-42]
+2020-11-21 12:39:49.972 WARN  16140 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat.yml] & group[jeesite-cloud-42]
+2020-11-21 12:39:49.975 WARN  16140 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat-default.yml] & group[jeesite-cloud-42]
+2020-11-21 12:39:50.003 INFO  16140 [           main] [com.jeesite.modules.IAPLATApplication  ] - The following profiles are active: default
+2020-11-21 12:39:50.906 WARN  16140 [           main] [o.s.c.c.u.SpringFactoryImportSelector  ] - More than one implementation of @EnableCircuitBreaker (now relying on @Conditionals to pick one): [org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerConfiguration, com.alibaba.cloud.sentinel.custom.SentinelCircuitBreakerConfiguration]
+2020-11-21 12:39:53.269 WARN  16140 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:39:53.273 WARN  16140 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:39:54.132 WARN  16140 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:39:54.387 WARN  16140 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:39:56.012 INFO  16140 [           main] [com.jeesite.common.config.Global       ] - Config files: [classpath:config/jeesite-core.yml, classpath:config/bootstrap.yml]
+2020-11-21 12:40:02.738 INFO  16140 [           main] [com.jeesite.common.config.Global       ] - Spring cache cluster mode: true, session manager name: J2CacheSession
+2020-11-21 12:40:06.799 INFO  16140 [           main] [com.jeesite.common.config.Global       ] - user.home: C:/Users/seven
+2020-11-21 12:40:06.800 INFO  16140 [           main] [com.jeesite.common.config.Global       ] - user.dir: D:/ideawork/jeesite-cloud
+2020-11-21 12:40:06.800 INFO  16140 [           main] [com.jeesite.common.config.Global       ] - logPath: D:/ideawork/jeesite-cloud/modules/iaplat/src/main/webapp/WEB-INF/classes
+
+   _____        ___  _   _           ___
+  |_   _|      / __'(_)_| |_        /   |
+  _ | | __  __ \___ | |_   _| __   / /| |
+ ( .| |/__\/__\ ___)| | | |_ /__\ / /_| |_
+  \___|\__.\__.|____|_| \___)\__.(____   _|  :: JeeSite V4.2.2 :: 
+======================================|_|==========================
+
+    欢迎使用 JeeSite Cloud V4.2
+
+    您当前的版本为JeeSite学习版，官方网站：http://jeesite.com
+
+    授权机器码是：a4a768465e69cb55fa4f6b7ae48dca7c
+    授权产品名称：JeeSite Cloud
+    授权公司名称：ThinkGem
+
+===================================================================
+
+2020-11-21 12:40:09.149 DEBUG 16140 [           main] [c.j.common.datasource.RoutingDataSource] - Set default data source success.
+2020-11-21 12:40:09.965 DEBUG 16140 [           main] [c.j.common.datasource.RoutingDataSource] - Add data source success: ds2
+2020-11-21 12:40:11.164 INFO  16140 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8983 (http)
+2020-11-21 12:40:12.077 WARN  16140 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:40:13.262 WARN  16140 [           main] [o.s.c.s.zipkin2.ZipkinAutoConfiguration] - Check result of the [RestTemplateSender{http://127.0.0.1:9411/api/v2/spans}] contains an error [CheckResult{ok=false, error=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://127.0.0.1:9411/api/v2/spans": Read timed out; nested exception is java.net.SocketTimeoutException: Read timed out}]
+2020-11-21 12:40:16.735 WARN  16140 [           main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'IACAdinfoService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+2020-11-21 12:40:17.739 WARN  16140 [           main] [z.r.AsyncReporter$BoundedAsyncReporter ] - Timed out waiting for in-flight spans to send
+2020-11-21 12:40:17.960 DEBUG 16140 [           main] [com.jeesite.common.utils.SpringUtils   ] - Destroy: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@62a4417, started on Sat Nov 21 12:39:50 GMT+08:00 2020, parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4e406694
+2020-11-21 12:40:17.966 WARN  16140 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+ com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:163)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:40:17.967 WARN  16140 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.client.naming.updater] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:40:17.968 WARN  16140 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.client.naming.updater] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1088)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:40:17.969 WARN  16140 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:40:17.970 WARN  16140 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:143)
+ java.net.DatagramSocket.receive(DatagramSocket.java:812)
+ com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:83)
+ java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+ java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+ java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+ java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:40:18.027 ERROR 16140 [           main] [o.s.boot.SpringApplication             ] - Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'IACAdinfoService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.jeesite.modules.IAPLATApplication.main(IAPLATApplication.java:21)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1697)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1442)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 33 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.if(yca:22765)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.buildSqlSessionFactory(yca:21735)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.afterPropertiesSet(yca:23819)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 40 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.apache.ibatis.parsing.XPathParser.createDocument(XPathParser.java:263)
+	at org.apache.ibatis.parsing.XPathParser.<init>(XPathParser.java:127)
+	at com.jeesite.common.mybatis.mapper.xml.XMLMapperBuilder.<init>(cz:62)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.if(yca:13224)
+	... 44 common frames omitted
+Caused by: org.xml.sax.SAXParseException: 元素内容必须由格式正确的字符数据或标记组成。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.startOfMarkup(XMLDocumentFragmentScannerImpl.java:2635)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2732)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:841)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:770)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:243)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.apache.ibatis.parsing.XPathParser.createDocument(XPathParser.java:261)
+	... 47 common frames omitted
+
+2020-11-21 12:43:35.102 WARN  8172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat] & group[jeesite-cloud-42]
+2020-11-21 12:43:35.134 WARN  8172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat.yml] & group[jeesite-cloud-42]
+2020-11-21 12:43:35.137 WARN  8172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat-default.yml] & group[jeesite-cloud-42]
+2020-11-21 12:43:35.164 INFO  8172 [           main] [com.jeesite.modules.IAPLATApplication  ] - The following profiles are active: default
+2020-11-21 12:43:35.683 WARN  8172 [           main] [o.s.c.c.u.SpringFactoryImportSelector  ] - More than one implementation of @EnableCircuitBreaker (now relying on @Conditionals to pick one): [org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerConfiguration, com.alibaba.cloud.sentinel.custom.SentinelCircuitBreakerConfiguration]
+2020-11-21 12:43:36.714 WARN  8172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:43:36.719 WARN  8172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:43:37.257 WARN  8172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:43:37.381 WARN  8172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:43:38.339 INFO  8172 [           main] [com.jeesite.common.config.Global       ] - Config files: [classpath:config/jeesite-core.yml, classpath:config/bootstrap.yml]
+2020-11-21 12:43:41.732 INFO  8172 [           main] [com.jeesite.common.config.Global       ] - Spring cache cluster mode: true, session manager name: J2CacheSession
+2020-11-21 12:43:45.615 INFO  8172 [           main] [com.jeesite.common.config.Global       ] - user.home: C:/Users/seven
+2020-11-21 12:43:45.616 INFO  8172 [           main] [com.jeesite.common.config.Global       ] - user.dir: D:/ideawork/jeesite-cloud
+2020-11-21 12:43:45.616 INFO  8172 [           main] [com.jeesite.common.config.Global       ] - logPath: D:/ideawork/jeesite-cloud/modules/iaplat/src/main/webapp/WEB-INF/classes
+
+   _____        ___  _   _           ___
+  |_   _|      / __'(_)_| |_        /   |
+  _ | | __  __ \___ | |_   _| __   / /| |
+ ( .| |/__\/__\ ___)| | | |_ /__\ / /_| |_
+  \___|\__.\__.|____|_| \___)\__.(____   _|  :: JeeSite V4.2.2 :: 
+======================================|_|==========================
+
+    欢迎使用 JeeSite Cloud V4.2
+
+    您当前的版本为JeeSite学习版，官方网站：http://jeesite.com
+
+    授权机器码是：a4a768465e69cb55fa4f6b7ae48dca7c
+    授权产品名称：JeeSite Cloud
+    授权公司名称：ThinkGem
+
+===================================================================
+
+2020-11-21 12:43:47.442 DEBUG 8172 [           main] [c.j.common.datasource.RoutingDataSource] - Set default data source success.
+2020-11-21 12:43:48.252 DEBUG 8172 [           main] [c.j.common.datasource.RoutingDataSource] - Add data source success: ds2
+2020-11-21 12:43:49.452 INFO  8172 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8983 (http)
+2020-11-21 12:43:49.985 WARN  8172 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:43:54.683 WARN  8172 [           main] [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'IACAdinfoService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+2020-11-21 12:43:55.690 WARN  8172 [           main] [z.r.AsyncReporter$BoundedAsyncReporter ] - Timed out waiting for in-flight spans to send
+2020-11-21 12:43:55.989 DEBUG 8172 [           main] [com.jeesite.common.utils.SpringUtils   ] - Destroy: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3ac8cf9b, started on Sat Nov 21 12:43:35 GMT+08:00 2020, parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@4e406694
+2020-11-21 12:43:55.997 WARN  8172 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.client.listener] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+ com.alibaba.nacos.client.naming.core.EventDispatcher$Notifier.run(EventDispatcher.java:163)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:43:55.998 WARN  8172 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.client.naming.updater] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1088)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:43:55.999 WARN  8172 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.client.naming.updater] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:43:56.000 WARN  8172 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.failover] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1067)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:43:56.001 WARN  8172 [           main] [o.a.c.loader.WebappClassLoaderBase     ] - The web application [js] appears to have started a thread named [com.alibaba.nacos.naming.push.receiver] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+ java.net.DualStackPlainDatagramSocketImpl.receive0(DualStackPlainDatagramSocketImpl.java:124)
+ java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:143)
+ java.net.DatagramSocket.receive(DatagramSocket.java:812)
+ com.alibaba.nacos.client.naming.core.PushReceiver.run(PushReceiver.java:83)
+ java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+ java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+ java.util.concurrent.FutureTask.run(FutureTask.java)
+ java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+ java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+ java.lang.Thread.run(Thread.java:745)
+2020-11-21 12:43:56.041 ERROR 8172 [           main] [o.s.boot.SpringApplication             ] - Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'IACAdinfoService': Unsatisfied dependency expressed through field 'dao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.jeesite.modules.IAPLATApplication.main(IAPLATApplication.java:21)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IACAdinfoDao' defined in file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\com\jeesite\modules\ia\dao\IACAdinfoDao.class]: Cannot resolve reference to bean 'jeesiteSqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:342)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1697)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1442)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jeesiteSqlSessionFactory' defined in class path resource [com/jeesite/autoconfigure/core/MyBatisAutoConfiguration.class]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	... 33 common frames omitted
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\ideawork\jeesite-cloud\modules\iaplat\src\main\webapp\WEB-INF\classes\mappings\modules\ia\IaCBridgeDao.xml]'; nested exception is org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.if(yca:22765)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.buildSqlSessionFactory(yca:21735)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.afterPropertiesSet(yca:23819)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 40 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error creating document instance.  Cause: org.xml.sax.SAXParseException; lineNumber: 55; columnNumber: 6; 元素内容必须由格式正确的字符数据或标记组成。
+	at org.apache.ibatis.parsing.XPathParser.createDocument(XPathParser.java:263)
+	at org.apache.ibatis.parsing.XPathParser.<init>(XPathParser.java:127)
+	at com.jeesite.common.mybatis.mapper.xml.XMLMapperBuilder.<init>(cz:62)
+	at com.jeesite.common.mybatis.SqlSessionFactoryBean.if(yca:13224)
+	... 44 common frames omitted
+Caused by: org.xml.sax.SAXParseException: 元素内容必须由格式正确的字符数据或标记组成。
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:203)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:177)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1472)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.startOfMarkup(XMLDocumentFragmentScannerImpl.java:2635)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2732)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:602)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:505)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:841)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:770)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:243)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:339)
+	at org.apache.ibatis.parsing.XPathParser.createDocument(XPathParser.java:261)
+	... 47 common frames omitted
+
+2020-11-21 12:46:03.958 WARN  19172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat] & group[jeesite-cloud-42]
+2020-11-21 12:46:03.962 WARN  19172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat.yml] & group[jeesite-cloud-42]
+2020-11-21 12:46:04.005 WARN  19172 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-iaplat-default.yml] & group[jeesite-cloud-42]
+2020-11-21 12:46:04.034 INFO  19172 [           main] [com.jeesite.modules.IAPLATApplication  ] - The following profiles are active: default
+2020-11-21 12:46:04.657 WARN  19172 [           main] [o.s.c.c.u.SpringFactoryImportSelector  ] - More than one implementation of @EnableCircuitBreaker (now relying on @Conditionals to pick one): [org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerConfiguration, com.alibaba.cloud.sentinel.custom.SentinelCircuitBreakerConfiguration]
+2020-11-21 12:46:05.820 WARN  19172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:46:05.825 WARN  19172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:46:06.459 WARN  19172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:46:06.614 WARN  19172 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:46:07.698 INFO  19172 [           main] [com.jeesite.common.config.Global       ] - Config files: [classpath:config/jeesite-core.yml, classpath:config/bootstrap.yml]
+2020-11-21 12:46:12.485 INFO  19172 [           main] [com.jeesite.common.config.Global       ] - Spring cache cluster mode: true, session manager name: J2CacheSession
+2020-11-21 12:46:16.765 INFO  19172 [           main] [com.jeesite.common.config.Global       ] - user.home: C:/Users/seven
+2020-11-21 12:46:16.766 INFO  19172 [           main] [com.jeesite.common.config.Global       ] - user.dir: D:/ideawork/jeesite-cloud
+2020-11-21 12:46:16.766 INFO  19172 [           main] [com.jeesite.common.config.Global       ] - logPath: D:/ideawork/jeesite-cloud/modules/iaplat/src/main/webapp/WEB-INF/classes
+
+   _____        ___  _   _           ___
+  |_   _|      / __'(_)_| |_        /   |
+  _ | | __  __ \___ | |_   _| __   / /| |
+ ( .| |/__\/__\ ___)| | | |_ /__\ / /_| |_
+  \___|\__.\__.|____|_| \___)\__.(____   _|  :: JeeSite V4.2.2 :: 
+======================================|_|==========================
+
+    欢迎使用 JeeSite Cloud V4.2
+
+    您当前的版本为JeeSite学习版，官方网站：http://jeesite.com
+
+    授权机器码是：a4a768465e69cb55fa4f6b7ae48dca7c
+    授权产品名称：JeeSite Cloud
+    授权公司名称：ThinkGem
+
+===================================================================
+
+2020-11-21 12:46:18.908 DEBUG 19172 [           main] [c.j.common.datasource.RoutingDataSource] - Set default data source success.
+2020-11-21 12:46:19.884 DEBUG 19172 [           main] [c.j.common.datasource.RoutingDataSource] - Add data source success: ds2
+2020-11-21 12:46:20.960 INFO  19172 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8983 (http)
+2020-11-21 12:46:21.459 WARN  19172 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:46:26.311 INFO  19172 [-mapper-refresh] [c.jeesite.common.mybatis.MapperRefresh ] - Mybatis mapper refresh, start in 60 seconds.
+2020-11-21 12:46:35.992 WARN  19172 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:46:41.639 WARN  19172 [           main] [c.a.c.s.d.converter.SentinelConverter  ] - converter can not convert rules because source is empty
+2020-11-21 12:46:42.302 INFO  19172 [           main] [com.jeesite.common.cache.CacheUtils    ] - removeCache: sysCache
+2020-11-21 12:46:42.304 INFO  19172 [           main] [com.jeesite.common.cache.CacheUtils    ] - removeCache: corpCache
+2020-11-21 12:46:42.306 INFO  19172 [           main] [com.jeesite.common.cache.CacheUtils    ] - removeCache: userCache
+2020-11-21 12:46:42.356 INFO  19172 [           main] [com.jeesite.common.cache.CacheUtils    ] - removeCache: cmsCache
+2020-11-21 12:47:01.026 INFO  19172 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8983 (http) with context path '/js'
+2020-11-21 12:47:03.439 INFO  19172 [           main] [com.jeesite.modules.IAPLATApplication  ] - Started IAPLATApplication in 65.325 seconds (JVM running for 68.047)
+2020-11-21 12:48:26.579 DEBUG 19172 [nio-8983-exec-1] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:26.577  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-ui.html  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:26.663 DEBUG 19172 [nio-8983-exec-1] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:26.652  用时: 75毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-ui.html  总内存: 643MB  已用内存: 494.772MB
+2020-11-21 12:48:28.065 DEBUG 19172 [nio-8983-exec-2] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:28.065  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources/configuration/ui  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:31.807 DEBUG 19172 [nio-8983-exec-2] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:31.806  用时: 3秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources/configuration/ui  总内存: 643MB  已用内存: 509.779MB
+2020-11-21 12:48:31.970 DEBUG 19172 [nio-8983-exec-3] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:31.970  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources/configuration/security  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:31.978 DEBUG 19172 [nio-8983-exec-3] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:31.978  用时: 8毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources/configuration/security  总内存: 643MB  已用内存: 510.314MB
+2020-11-21 12:48:32.016 DEBUG 19172 [nio-8983-exec-4] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:32.016  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:32.030 DEBUG 19172 [nio-8983-exec-4] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:32.030  用时: 14毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/swagger-resources  总内存: 643MB  已用内存: 510.850MB
+2020-11-21 12:48:32.123 DEBUG 19172 [nio-8983-exec-5] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:32.123  URI: /js/a/jeesite-cloud-module-iaplat/swagger/v2/api-docs  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:32.153 DEBUG 19172 [nio-8983-exec-6] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:32.153  URI: /js/a/jeesite-cloud-module-iaplat/swagger/  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:32.156 DEBUG 19172 [nio-8983-exec-6] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:32.156  用时: 3毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/  总内存: 643MB  已用内存: 511.927MB
+2020-11-21 12:48:32.616 DEBUG 19172 [nio-8983-exec-5] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:32.616  用时: 493毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/v2/api-docs  总内存: 643MB  已用内存: 526.520MB
+2020-11-21 12:48:33.515 DEBUG 19172 [nio-8983-exec-8] [c.j.m.sys.interceptor.LogInterceptor   ] - 开始计时: 12:48:33.515  URI: /js/a/jeesite-cloud-module-iaplat/swagger/csrf  IP: 0:0:0:0:0:0:0:1
+2020-11-21 12:48:33.519 DEBUG 19172 [nio-8983-exec-8] [c.j.m.sys.interceptor.LogInterceptor   ] - 计时结束: 12:48:33.519  用时: 4毫秒  URI: /js/a/jeesite-cloud-module-iaplat/swagger/csrf  总内存: 643MB  已用内存: 527.056MB

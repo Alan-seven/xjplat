@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaCRsDao">
+
+    <sql id="iaCrsColumns">
+		a.rscd AS "rscd",
+		a.rs_code AS "rscode",
+		a.rs_name AS "rsname",
+		a.adcd AS "adcd",
+		a.wscd AS "wscd",
+		a.rv_code AS "rvcode",
+		a.rs_type AS "rstype",
+		a.main_wr_type AS "mainwrtype",
+		a.main_fl_type AS "mainfltype",
+		a.mul_aver_run AS "mulaverrun",
+		a.eng_grad AS "enggrad",
+		a.dam_size_hig AS "damsizehig",
+		a.dam_size_len AS "damsizelen",
+		a.max_dis_flow AS "maxdisflow",
+		a.des_fl_stag AS "desflstag",
+		a.tot_cap AS "totcap",
+		a.cor_sur_area AS "corsurarea",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.moditime AS "moditime"
+	</sql>
+
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaCRs">
+        SELECT <include refid="iaCrsColumns"/>
+        FROM IA_C_RS a
+        WHERE a.rscd = #{rscd} and a.rs_code = #{rscode}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCRs" >
+        SELECT
+        <include refid="iaCrsColumns"/>
+        ,info.adnm AS "adnm",c.wsnm AS "wsnm"
+        FROM IA_C_RS a
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+        <where>
+            1=1
+            <if test="rscode != null and rscode != ''">
+                and a.rscode like '%'+#{rscode}+'%'
+            </if>
+            <if test="rscd !=null and rscd != ''">
+                and a.rscd = #{rscd}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_C_RS(
+			rscd,
+			rs_code,
+			rs_name,
+			adcd,
+			wscd,
+			rv_code,
+			rs_type,
+			main_wr_type,
+			dam_type,
+			main_fl_type,
+			mul_aver_run ,
+            eng_grad ,
+            dam_size_hig ,
+            dam_size_len ,
+            max_dis_flow ,
+            des_fl_stag ,
+            tot_cap ,
+            cor_sur_area ,
+            lgtd ,
+            lttd ,
+            signer ,
+            audid ,
+            status
+		) VALUES (
+			#{rscd},
+			#{rscode},
+			#{rsname},
+			#{adcd},
+			#{wscd},
+			#{rvcode},
+			#{rstype},
+			#{mainwrtype},
+			#{damtype},
+			#{mainfltype},
+			#{mulaverrun},
+			#{enggrad},
+			#{damsizehig},
+			#{damsizelen},
+			#{maxdisflow},
+			#{desflstag},
+			#{totcap},
+			#{corsurarea},
+			#{lgtd},
+			#{lttd},
+			#{signer},
+			#{audid},
+			#{status}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_C_RS SET
+		rs_name = #{rsname},
+		adcd = #{adcd},
+		wscd = #{wscd},
+		rv_code = #{rvcode},
+		rs_type = #{rstype},
+		main_wr_type = #{mainwrtype},
+		dam_type = #{damtype},
+		main_fl_type = #{mainfltype},
+		mul_aver_run = #{mulaverrun},
+		eng_grad = #{enggrad},
+		dam_size_hig = #{damsizehig},
+		dam_size_len = #{damsizelen},
+		max_dis_flow = #{maxdisflow},
+		des_fl_stag = #{desflstag},
+		tot_cap = #{totcap},
+		cor_sur_area = #{corsurarea},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status}
+		WHERE rs_code = #{rscode} and rscd = #{rscd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_C_RS
+		WHERE rs_code = #{rscode} and rscd = #{rscd}
+	</update>
+</mapper>

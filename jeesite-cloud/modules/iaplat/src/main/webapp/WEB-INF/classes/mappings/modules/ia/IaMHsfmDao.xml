@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaMHsfmDao">
+
+    <sql id="iaMHsfmColumns">
+		a.id AS "id",
+		a.fmcd AS "fmcd",
+		a.ele AS "ele",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.floodm AS "floodm",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.remark AS "remark",
+		a.moditime AS "moditime"
+	</sql>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaMHsfm">
+        SELECT <include refid="iaMHsfmColumns"/>
+        FROM IA_M_HSFM a
+        WHERE a.id = #{id}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMHsfm">
+        SELECT
+        <include refid="iaMHsfmColumns"/>
+        FROM IA_M_HSFM a
+        <where>
+            1=1
+            <if test="fmcd != null and fmcd != ''">
+                AND a.fmcd = #{fmcd}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_M_HSFM(
+			fmcd,
+			id,
+			ele,
+			lgtd,
+			lttd,
+			floodm,
+			signer,
+			audid,
+			status,
+			remark
+		) VALUES (
+			#{fmcd},
+			#{id},
+			#{ele},
+			#{lgtd},
+			#{lttd},
+			#{floodm},
+			#{signer},
+			#{audid},
+			#{status},
+			#{remark}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_M_HSFM SET
+		fmcd = #{fmcd},
+		ele = #{ele},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		floodm = #{floodm},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status},
+		remark = #{remark}
+		WHERE id = #{id}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_M_HSFM
+		WHERE id = #{id}
+	</update>
+</mapper>

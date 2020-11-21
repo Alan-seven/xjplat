@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaCDikeDao">
+
+    <sql id="iaCDikeColumns">
+		a.dikecd AS "dikecd",
+		a.dike_code AS "dikecode",
+		a.dike_name AS "dikename",
+		a.adcd AS "adcd",
+		a.wscd AS "wscd",
+		a.rv_code AS "rvcode",
+		a.rv_bank AS "rvbank",
+		a.dike_cor_boun AS "dikecorboun",
+		a.dike_type AS "diketype",
+		a.dike_styl AS "dikestyl",
+		a.dike_grad AS "dikegrad",
+		a.plan_fl_sta AS "planflsta",
+		a.dike_len AS "dikelen",
+		a.fl_sta_len AS "flstalen",
+		a.ele_sys AS "elesys",
+		a.des_stag AS "desstag",
+		a.dike_hig_max AS "dikehigmax",
+		a.dike_wid_max AS "dikewidmax",
+		a.eng_task AS "endtask",
+		a.dike_hig_min AS "dikehigmin",
+		a.dike_wid_min AS "dikewidmin",
+		a.dam_cre_beg_ele AS "damcrebegele",
+		a.dam_cre_edn_ele AS "damcreednele",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.moditime AS "moditime"
+	</sql>
+
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaCDike">
+        SELECT <include refid="iaCDikeColumns"/> , b.adnm as "adnm"
+        FROM IA_C_DIKE a
+        WHERE a.dikecd = #{dikecd}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCDike" >
+        SELECT
+        <include refid="iaCDikeColumns"/>
+        ,info.adnm AS "adnm",c.wsnm AS "wsnm"
+        FROM IA_C_DIKE a
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+        <where>
+            1=1
+            <if test="dikename != null and dikename != ''">
+                and a.dike_name like '%'+#{dikename}+'%'
+            </if>
+            <if test="dikecd  != null and dikecd  != ''">
+                and a.dikecd = #{dikecd}}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_C_DIKE(
+			dikecd,
+			dike_code,
+			dike_name,
+			adcd,
+			wscd,
+			rv_code,
+			rv_bank,
+			dike_cor_boun,
+			dike_type,
+			dike_styl,
+			dike_grad ,
+			plan_fl_sta,
+            dike_len ,
+            fl_sta_len,
+            ele_sys ,
+            des_stag ,
+            dike_hig_max ,
+            dike_wid_max ,
+            eng_task,
+            dike_hig_min ,
+            dike_wid_min ,
+            dam_cre_beg_ele ,
+            dam_cre_edn_ele ,
+            signer ,
+            audid ,
+            status
+		) VALUES (
+			#{dikecd},
+			#{dikecode},
+			#{dikename},
+			#{adcd},
+			#{wscd},
+			#{rvcode},
+			#{rvbank},
+			#{dikecorboun},
+			#{diketype},
+			#{dikestyl},
+			#{dikegrad},
+			#{planflsta},
+			#{dikelen},
+			#{flstalen},
+			#{elesys},
+			#{desstag},
+			#{dikehigmax},
+			#{dikewidmax},
+			#{engtask},
+			#{dikehigmin},
+			#{dikewidmin},
+			#{damcrebegele},
+			#{damcreednele},
+			#{signer},
+			#{audid},
+			#{status}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_C_DIKE SET
+		dike_code = #{dikecode},
+		dike_name = #{dikename},
+		adcd = #{adcd},
+		wscd = #{wscd},
+		rv_code = #{rvcode},
+		rv_bank = #{rvbank},
+		dike_cor_boun = #{dikecorboun},
+		dike_type = #{diketype},
+		dike_styl = #{dikestyl},
+		dike_grad = #{dikegrad},
+		plan_fl_sta = #{planflsta},
+		dike_len = #{dikelen},
+		fl_sta_len = #{flstalen},
+		ele_sys = #{elesys},
+		des_stag = #{desstag},
+		dike_hig_max = #{dikehigmax},
+		dike_wid_max = #{dikewidmax},
+		eng_task = #{engtask},
+		dike_hig_min = #{dikehigmin},
+		dike_wid_min = #{dikewidmin},
+		dam_cre_beg_ele = #{damcrebegele},
+		dam_cre_edn_ele = #{damcreednele},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status}
+		WHERE  dikecd = #{dikecd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_C_DIKE
+		WHERE dikecd = #{dikecd}
+	</update>
+</mapper>

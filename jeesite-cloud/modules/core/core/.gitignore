@@ -1,0 +1,17 @@
+##ignore this file##
+/bin/
+/db/
+/target/
+.classpath
+.project
+.settings
+/.idea/
+*.class
+#some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+/.apt_generated/
+jeesite-cloud-module-core.iml

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.WataDao">
+
+    <sql id="wataColumns">
+		a.wscd AS "wscd",
+		a.wsnm AS "wsnm",
+		a.gb AS "gb",
+		a.pwscd AS "pwscd",
+		a.iwscd AS "iwscd",
+		a.owscd AS "owscd",
+		a.wscs AS "wscs",
+		a.wstype AS "wstype",
+		a.wsarea AS "wsarea",
+		a.wsperi AS "wsperi",
+		a.wsslp AS "wsslp",
+		a.wsshpc AS "wsshpc",
+		a.maxlen AS "maxlen",
+		a.maxlslp AS "maxlslp",
+		a.maxls1085 AS "maxls1085",
+		a.centerx AS "centerx",
+		a.centery AS "centery",
+		a.centerelv AS "centerelv",
+		a.outletx AS "outletx",
+		a.outlety AS "outlety",
+		a.outletelv AS "outletelv",
+		a.maxelv AS "maxelv",
+		a.averou AS "averou",
+		a.aveinf AS "aveinf"
+	</sql>
+
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.Wata">
+        SELECT <include refid="wataColumns"/> , b.adnm as "adnm"
+        FROM WATA a
+        WHERE a.wscd = #{wscd}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.Wata" >
+        SELECT
+        <include refid="wataColumns"/>
+        FROM WATA a
+        <where>
+            1=1
+            <if test="wsnm != null and wsnm != ''">
+                and a.wsnm like '%'+#{wsnm}+'%'
+            </if>
+            <if test="wscd =  !=null and wscd =  != ''">
+                and a.wscd = #{wscd} = #{wscd = #{wscd}}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO WATA(
+			wscd,
+			wsnm,
+			gb,
+			pwscd,
+			iwscd,
+			owscd,
+			ondcd,
+			wscs,
+			wstype,
+			wsarea,
+			wsperi ,
+            wsslp ,
+            wsshpc ,
+            maxlen ,
+            maxlslp ,
+            maxls1085 ,
+            centerx ,
+            centery ,
+            centerelv ,
+            outletx ,
+            outlety ,
+            outletelv ,
+            maxelv ,
+            averou ,
+            aveinf
+		) VALUES (
+			#{wscd},
+			#{wsnm},
+			#{gb},
+			#{pwscd},
+			#{iwscd},
+			#{owscd},
+			#{ondcd},
+			#{wscs},
+			#{wstype},
+			#{wsarea},
+			#{wsperi},
+			#{wsslp},
+			#{wsshpc},
+			#{maxlen},
+			#{maxlslp},
+			#{maxls1085},
+			#{centerx},
+			#{centery},
+			#{centerelv},
+			#{outletx},
+			#{outlety},
+			#{outletelv},
+			#{maxelv},
+			#{averou},
+			#{aveinf}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE WATA SET
+		wsnm = #{wsnm},
+		gb = #{gb},
+		pwscd = #{pwscd},
+		iwscd = #{iwscd},
+		owscd = #{owscd},
+		ondcd = #{ondcd},
+		wscs = #{wscs},
+		wstype = #{wstype},
+		wsarea = #{wsarea},
+		wsperi = #{wsperi},
+		wsslp = #{wsslp},
+		wsshpc = #{wsshpc},
+		maxlen = #{maxlen},
+		maxlslp = #{maxlslp},
+		maxls1085 = #{maxls1085},
+		centerx = #{centerx},
+		status = #{centery},
+		centerelv = #{centerelv},
+		outletx = #{outletx},
+		outlety = #{outlety},
+		outletelv = #{outletelv},
+		maxelv = #{maxelv},
+		averou = #{averou},
+		aveinf = #{aveinf}
+		WHERE wscd = #{wscd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM WATA
+		WHERE wscd = #{wscd}
+	</update>
+</mapper>

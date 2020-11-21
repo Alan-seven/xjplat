@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IAMVsurfaceDao">
+
+    <sql id="iamVsurfaceColumns">
+		a.vecd AS "vecd",
+		a.adcd AS "adcd",
+		a.channel AS "channel",
+		a.address AS "address",
+		a.isctown AS "isctown",
+		a.cele AS "cele",
+		a.clgtd AS "clgtd",
+		a.clttd AS "clttd",
+		a.eletype AS "eletype",
+		a.method AS "method",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.remark AS "remark"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IAMVsurface" id="iamVsurfaceResult">
+        <id property="vecd" column="vecd" />
+        <result property="adcd" column="adcd" />
+        <result property="channel" column="channel" />
+        <result property="address" column="address" />
+        <result property="isctown" column="isctown" />
+        <result property="cele" column="cele" />
+        <result property="clgtd" column="clgtd" />
+        <result property="clttd" column="clttd" />
+        <result property="eletype" column="eletype" />
+        <result property="method" column="method" />
+        <result property="signer" column="signer" />
+        <result property="audid" column="audid" />
+        <result property="status" column="status" />
+        <result property="remark" column="remark" />
+        <result property="adnm" column="adnm" />
+        <collection property="pinfoList" ofType="com.jeesite.modules.ia.entity.IAPInfo" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IAMVsurface">
+        SELECT <include refid="iamVsurfaceColumns"/> , b.adnm as "adnm"
+        FROM IA_M_VSURFACE a
+        left join ia_c_adinfo b on a.adcd = b.adcd
+        WHERE a.vecd = #{vecd}
+    </select>
+
+    <!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IAMVsurface" resultMap="iamVsurfaceResult">
+        SELECT
+        <include refid="iamVsurfaceColumns"/>
+        ,v.pid AS "pid", v.pname AS "pname",v.fpath AS "fpath",v.disc  AS "disc" , info.adnm as "adnm"
+        FROM IA_M_VSURFACE a
+        left join rel_p_v b on a.vecd = b.vecd
+        left join IA_P_INFO v on b.pid = v.pid
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        <where>
+            1=1
+            <if test="adcd != null and adcd != ''">
+                and a.adcd like #{adcd}+'%'
+            </if>
+            <if test="vecd !=null and vecd != ''">
+                and a.vecd = #{vecd}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_M_VSURFACE(
+			vecd,
+			adcd,
+			channel,
+			address,
+			isctown,
+			cele,
+			clgtd,
+			clttd,
+			eletype,
+			method,
+			signer,
+			audid,
+			status,
+			remark
+		) VALUES (
+			#{vecd},
+			#{adcd},
+			#{channel},
+			#{address},
+			#{isctown},
+			#{cele},
+			#{clgtd},
+			#{clttd},
+			#{eletype},
+			#{method},
+			#{signer},
+			#{audid},
+			#{status},
+			#{remark}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_M_VSURFACE SET
+		adcd = #{adcd},
+		channel = #{channel},
+		address = #{address},
+		isctown = #{isctown},
+		cele = #{cele},
+		clgtd = #{clgtd},
+		clttd = #{clttd},
+		eletype = #{eletype},
+		method = #{method},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status},
+		remark = #{remark}
+		WHERE vecd = #{vecd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_M_VSURFACE
+		WHERE vecd = #{vecd}
+	</update>
+</mapper>

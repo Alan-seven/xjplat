@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaMHsurfaceDao">
+
+    <sql id="iamHsurfaceColumns">
+		a.hecd AS "hecd",
+		a.vecd AS "vecd",
+		a.adcd AS "adcd",
+		a.channel AS "channel",
+		a.address AS "address",
+		a.isctown AS "isctown",
+		a.dmidentit AS "dmidentit",
+		a.dmform AS "dmform",
+		a.texture AS "texture",
+		a.coordinate AS "coordinate",
+		a.eletype AS "eletype",
+		a.baseele AS "baseele",
+		a.baselgtd AS "baselgtd",
+		a.baselttd AS "baselttd",
+		a.azimuth AS "azimuth",
+		a.hmz AS "hmz",
+		a.czz AS "czz",
+		a.method AS "method",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.remark AS "remark"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IaMHsurface" id="iamHsurfaceResult">
+        <id property="hecd" column="hecd" />
+        <result property="adcd" column="adcd" />
+        <result property="channel" column="channel" />
+        <result property="address" column="address" />
+        <result property="isctown" column="isctown" />
+        <result property="vecd" column="vecd" />
+        <result property="dmidentit" column="dmidentit" />
+        <result property="dmform" column="dmform" />
+        <result property="texture" column="texture" />
+        <result property="coordinate" column="coordinate" />
+        <result property="eletype" column="eletype" />
+        <result property="baseele" column="baseele" />
+        <result property="baselgtd" column="baselgtd" />
+        <result property="baselttd" column="baselttd" />
+        <result property="azimuth" column="azimuth" />
+        <result property="hmz" column="hmz" />
+        <result property="czz" column="czz" />
+        <result property="method" column="method" />
+        <result property="signer" column="signer" />
+        <result property="audid" column="audid" />
+        <result property="status" column="status" />
+        <result property="remark" column="remark" />
+        <result property="lgtd" column="lgtd" />
+        <result property="lttd" column="lttd" />
+        <result property="adnm" column="adnm" />
+        <collection property="pinfoList" ofType="com.jeesite.modules.ia.entity.IAPInfo" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaMHsurface">
+        SELECT <include refid="iamHsurfaceColumns"/> , b.adnm
+        FROM IA_M_HSURFACE a
+        left join ia_c_adinfo b on a.adcd = b.adcd
+        WHERE a.hecd = #{hecd}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMHsurface" resultMap="iamHsurfaceResult">
+        SELECT
+        <include refid="iamHsurfaceColumns"/>
+        ,v.pid AS "pid", v.pname AS "pname",v.fpath AS "fpath",v.disc  AS "disc", info.adnm as "adnm"
+        FROM IA_M_HSURFACE a
+        left join rel_p_v b on a.vecd = b.vecd
+        left join IA_P_INFO v on b.pid = v.pid
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        <where>
+            1=1
+            <if test="adcd != null and adcd != ''">
+                and a.adcd like #{adcd}+'%'
+            </if>
+            <if test="vecd !=null and vecd != ''">
+                and a.vecd = #{vecd}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_M_HSURFACE(
+			hecd,
+			vecd,
+			adcd,
+			channel,
+			address,
+			isctown,
+			dmidentit,
+			dmform,
+			texture,
+			coordinate,
+			eletype,
+			baseele,
+			baselgtd,
+			baselttd,
+			azimuth,
+			hmz,
+			czz,
+			method,
+			signer,
+			audid,
+			status,
+			lgtd,
+			lttd,
+			remark
+		) VALUES (
+			#{hecd},
+			#{vecd},
+			#{adcd},
+			#{channel},
+			#{address},
+			#{isctown},
+			#{dmidentit},
+			#{dmform},
+			#{texture},
+			#{coordinate},
+			#{eletype},
+			#{baseele},
+			#{baselgtd},
+			#{baselttd},
+			#{azimuth},
+			#{hmz},
+			#{czz},
+			#{method},
+			#{signer},
+			#{audid},
+			#{status},
+			#{lgtd},
+			#{lttd},
+			#{remark}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_M_HSURFACE SET
+		vecd = #{vecd},
+		adcd = #{adcd},
+		channel = #{channel},
+		address = #{address},
+		isctown = #{isctown},
+		dmidentit = #{dmidentit},
+		dmform = #{dmform},
+		texture = #{texture},
+		coordinate = #{coordinate},
+		eletype = #{eletype},
+		baseele = #{baseele},
+		baselgtd = #{baselgtd},
+		baselttd = #{baselttd},
+		azimuth = #{azimuth},
+		hmz = #{hmz},
+		czz = #{czz},
+		method = #{method},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		remark = #{remark}
+		WHERE hecd = #{hecd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_M_HSURFACE
+		WHERE hecd = #{hecd}
+	</update>
+</mapper>

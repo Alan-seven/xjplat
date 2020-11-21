@@ -1,0 +1,53 @@
+2020-11-21 12:25:13.423 WARN  2776 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-core] & group[jeesite-cloud-42]
+2020-11-21 12:25:13.431 WARN  2776 [           main] [c.a.c.n.c.NacosPropertySourceBuilder   ] - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-module-core-default.yml] & group[jeesite-cloud-42]
+2020-11-21 12:25:13.456 INFO  2776 [           main] [com.jeesite.modules.CoreApplication    ] - The following profiles are active: default
+2020-11-21 12:25:14.355 WARN  2776 [           main] [o.s.c.c.u.SpringFactoryImportSelector  ] - More than one implementation of @EnableCircuitBreaker (now relying on @Conditionals to pick one): [org.springframework.cloud.netflix.hystrix.HystrixCircuitBreakerConfiguration, com.alibaba.cloud.sentinel.custom.SentinelCircuitBreakerConfiguration]
+2020-11-21 12:25:15.949 WARN  2776 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:25:15.955 WARN  2776 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:25:16.713 WARN  2776 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:25:16.754 WARN  2776 [           main] [o.s.boot.actuate.endpoint.EndpointId   ] - Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2020-11-21 12:25:17.907 INFO  2776 [           main] [com.jeesite.common.config.Global       ] - Config files: [classpath:config/jeesite-core.yml, classpath:config/bootstrap.yml]
+2020-11-21 12:25:21.786 INFO  2776 [           main] [com.jeesite.common.config.Global       ] - Spring cache cluster mode: true, session manager name: J2CacheSession
+2020-11-21 12:25:26.042 INFO  2776 [           main] [com.jeesite.common.config.Global       ] - user.home: C:/Users/seven
+2020-11-21 12:25:26.042 INFO  2776 [           main] [com.jeesite.common.config.Global       ] - user.dir: D:/ideawork/jeesite-cloud
+2020-11-21 12:25:26.042 INFO  2776 [           main] [com.jeesite.common.config.Global       ] - logPath: D:/ideawork/jeesite-cloud/modules/core/core/src/main/webapp/WEB-INF/classes
+
+   _____        ___  _   _           ___
+  |_   _|      / __'(_)_| |_        /   |
+  _ | | __  __ \___ | |_   _| __   / /| |
+ ( .| |/__\/__\ ___)| | | |_ /__\ / /_| |_
+  \___|\__.\__.|____|_| \___)\__.(____   _|  :: JeeSite V4.2.1 :: 
+======================================|_|==========================
+
+    欢迎使用 JeeSite Cloud V4.2
+
+    您当前的版本为JeeSite学习版，官方网站：http://jeesite.com
+
+    授权机器码是：a4a768465e69cb55fa4f6b7ae48dca7c
+    授权产品名称：JeeSite Cloud
+    授权公司名称：ThinkGem
+
+===================================================================
+
+2020-11-21 12:25:28.275 DEBUG 2776 [           main] [c.j.common.datasource.RoutingDataSource] - Set default data source success.
+2020-11-21 12:25:29.082 DEBUG 2776 [           main] [c.j.common.datasource.RoutingDataSource] - Add data source success: ds2
+2020-11-21 12:25:29.888 INFO  2776 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8981 (http)
+2020-11-21 12:25:30.574 WARN  2776 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:25:31.882 INFO  2776 [-mapper-refresh] [c.jeesite.common.mybatis.MapperRefresh ] - Mybatis mapper refresh, start in 60 seconds.
+2020-11-21 12:25:41.377 WARN  2776 [           main] [c.n.c.sources.URLConfigurationSource   ] - No URLs will be polled as dynamic configuration sources.
+2020-11-21 12:25:44.166 WARN  2776 [           main] [c.a.c.s.d.converter.SentinelConverter  ] - converter can not convert rules because source is empty
+2020-11-21 12:25:45.104 DEBUG 2776 [           main] [c.j.c.m.m.provider.SelectSqlProvider   ] - 5毫秒: SELECT a.status AS "status", a.create_by AS "createBy", a.create_date AS "createDate", a.update_by AS "updateBy", a.update_date AS "updateDate", a.remarks AS "remarks", a.job_name AS "jobName", a.job_group AS "jobGroup", a.description AS "description", a.invoke_target AS "invokeTarget", a.cron_expression AS "cronExpression", a.misfire_instruction AS "misfireInstruction", a.concurrent AS "concurrent", a.instance_name AS "instanceName" FROM js_sys_job a WHERE a.instance_name = #{sqlMap.where#instance_name#EQ1} ORDER BY a.job_group, a.job_name
+2020-11-21 12:25:45.152 DEBUG 2776 [           main] [c.j.modules.job.dao.JobDao.findList    ] - ==>  Preparing: SELECT a.status AS "status", a.create_by AS "createBy", a.create_date AS "createDate", a.update_by AS "updateBy", a.update_date AS "updateDate", a.remarks AS "remarks", a.job_name AS "jobName", a.job_group AS "jobGroup", a.description AS "description", a.invoke_target AS "invokeTarget", a.cron_expression AS "cronExpression", a.misfire_instruction AS "misfireInstruction", a.concurrent AS "concurrent", a.instance_name AS "instanceName" FROM js_sys_job a WHERE a.instance_name = ? ORDER BY a.job_group, a.job_name
+2020-11-21 12:25:45.190 DEBUG 2776 [           main] [c.j.modules.job.dao.JobDao.findList    ] - ==> Parameters: JeeSiteScheduler(String)
+2020-11-21 12:25:45.253 DEBUG 2776 [           main] [c.j.modules.job.dao.JobDao.findList    ] - <==      Total: 2
+2020-11-21 12:25:50.418 INFO  2776 [           main] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8981 (http) with context path '/js'
+2020-11-21 12:25:52.413 INFO  2776 [           main] [com.jeesite.modules.CoreApplication    ] - Started CoreApplication in 44.879 seconds (JVM running for 48.181)
+2020-11-21 12:40:18.232 INFO  2776 [enerContainer-2] [c.j.c.j.c.s.r.SpringRedisMessageListener] - Node-1867924 quit to j2cache
+2020-11-21 12:43:55.770 INFO  2776 [enerContainer-3] [c.j.c.j.c.s.r.SpringRedisMessageListener] - Node-1767279 quit to j2cache
+2020-11-21 12:46:55.654 DEBUG 2776 [nio-8981-exec-1] [c.j.m.g.d.GenDataDictDao.findTableList ] - ==>  Preparing: SELECT t.name AS "tableName", convert(varchar(500), p.value) AS "comments" FROM sysobjects t LEFT JOIN sys.extended_properties p ON p.major_id = t.id AND p.minor_id = 0 AND p.name = 'MS_Description' WHERE (t.xtype = 'U' OR t.xtype = 'V') ORDER BY t.name
+2020-11-21 12:46:55.657 DEBUG 2776 [nio-8981-exec-1] [c.j.m.g.d.GenDataDictDao.findTableList ] - ==> Parameters: 
+2020-11-21 12:46:55.879 DEBUG 2776 [nio-8981-exec-1] [c.j.m.g.d.GenDataDictDao.findTableList ] - <==      Total: 90
+2020-11-21 12:46:55.923 DEBUG 2776 [nio-8981-exec-1] [c.j.c.m.m.provider.SelectSqlProvider   ] - 1毫秒: SELECT a.status AS "status", a.create_by AS "createBy", a.create_date AS "createDate", a.update_by AS "updateBy", a.update_date AS "updateDate", a.remarks AS "remarks", a.module_code AS "moduleCode", a.module_name AS "moduleName", a.description AS "description", a.main_class_name AS "mainClassName", a.current_version AS "currentVersion", a.upgrade_info AS "upgradeInfo" FROM js_sys_module a WHERE a.status = #{sqlMap.where#status#EQ1} ORDER BY a.update_date DESC
+2020-11-21 12:46:55.940 DEBUG 2776 [nio-8981-exec-1] [c.j.modules.sys.dao.ModuleDao.findList ] - ==>  Preparing: SELECT a.status AS "status", a.create_by AS "createBy", a.create_date AS "createDate", a.update_by AS "updateBy", a.update_date AS "updateDate", a.remarks AS "remarks", a.module_code AS "moduleCode", a.module_name AS "moduleName", a.description AS "description", a.main_class_name AS "mainClassName", a.current_version AS "currentVersion", a.upgrade_info AS "upgradeInfo" FROM js_sys_module a WHERE a.status = ? ORDER BY a.update_date DESC
+2020-11-21 12:46:55.941 DEBUG 2776 [nio-8981-exec-1] [c.j.modules.sys.dao.ModuleDao.findList ] - ==> Parameters: 0(String)
+2020-11-21 12:46:56.057 DEBUG 2776 [nio-8981-exec-1] [c.j.modules.sys.dao.ModuleDao.findList ] - <==      Total: 8

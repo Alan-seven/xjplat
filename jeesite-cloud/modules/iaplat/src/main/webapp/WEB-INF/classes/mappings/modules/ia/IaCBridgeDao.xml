@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaCBridgeDao">
+
+    <sql id="iacBridgeColumns">
+		a.brcd AS "brcd",
+		a.brname AS "brname",
+		a.wscd AS "wscd",
+		a.adcd AS "adcd",
+		a.picid AS "picid",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.lengt AS "lengt",
+		a.height AS "height",
+		a.width AS "width",
+		a.typ AS "typ",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.comments AS "comments"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IaCBridge" id="iamCBridgeResult">
+        <id property="brcd" column="brcd" />
+        <result property="brname" column="brname" />
+        <result property="wscd" column="wscd" />
+        <result property="adcd" column="adcd" />
+        <result property="picid" column="picid" />
+        <result property="lgtd" column="lgtd" />
+        <result property="lttd" column="lttd" />
+        <result property="lengt" column="lengt" />
+        <result property="width" column="width" />
+        <result property="height" column="height" />
+        <result property="typ" column="typ" />
+        <result property="signer" column="signer" />
+        <result property="audid" column="audid" />
+        <result property="status" column="status" />
+        <result property="comments" column="comments" />
+        <result property="adnm" column="adnm" />
+        <result property="wsnm" column="wsnm" />
+        <collection property="pbaseList" ofType="com.jeesite.modules.ia.entity.IaPBase" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaCBridge">
+        SELECT <include refid="iacBridgeColumns"/>
+        FROM IA_C_BRIDGE a
+        WHERE a.brcd = #{brcd}
+    </select>
+
+    <!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCBridge" resultMap="iamCBridgeResult">
+        SELECT
+        <include refid="iacBridgeColumns"/>
+        , b.adnm AS "adnm", c.wsnm AS "wsnm",
+        p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+        FROM IA_C_BRIDGE a
+        LEFT JOIN IA_C_ADINFO b on a.adcd = b.adcd
+        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+        left join rel_p_bridge d on a.brcd = d.brcd
+        left join IA_P_BASE p on d.pid = p.pid
+        <where>
+            1=1
+            <if test="adcd != null and adcd != ''">
+                and a.adcd like #{adcd}+'%'
+            </if>
+            <if test="brname !=null and brname != ''">
+                and a.brname like '%'+#{brname}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_C_BRIDGE(
+			brcd,
+			brname,
+			wscd,
+			adcd,
+			picid,
+			lengt,
+			height,
+			width,
+			typ,
+			lgtd,
+			lttd,
+			signer,
+			audid,
+			status,
+			comments
+		) VALUES (
+			#{brcd},
+			#{brname},
+			#{wscd},
+			#{adcd},
+			#{picid},
+			#{lengt},
+			#{height},
+			#{width},
+			#{typ},
+			#{lgtd},
+			#{lttd},
+			#{signer},
+			#{audid},
+			#{status},
+			#{comments}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_C_BRIDGE SET
+		brname = #{brname},
+		wscd = #{wscd},
+		adcd = #{adcd},
+		picid = #{picid},
+		lengt = #{lengt},
+		height = #{height},
+		width = #{width},
+		typ = #{typ},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status},
+		comments = #{comments}
+		WHERE brcd = #{brcd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_C_BRIDGE
+		WHERE brcd = #{brcd}
+	</update>
+</mapper>

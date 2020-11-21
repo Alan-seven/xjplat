@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaZFloodDao">
+
+    <sql id="iaZFloodColumns">
+		a.fcd AS "fcd",
+		a.fname AS "fname",
+		a.address AS "address",
+		a.location AS "location",
+		a.startdate AS "startdate",
+		a.enddate AS "enddate",
+		a.dyp AS "dyp",
+		a.drp AS "drp",
+		a.fdyp AS "fdyp",
+		a.sdyp AS "sdyp",
+		a.tdyp AS "tdyp",
+		a.mxatmp AS "mxatmp",
+		a.mnatmp AS "mnatmp",
+		a.avgtmp AS "avgtmp",
+		a.z AS "z",
+		a.q AS "q",
+		a.stnm AS "stnm",
+		a.dep AS "dep",
+		a.spcount AS "spcount",
+		a.dpcount AS "dpcount",
+		a.mpcount AS "mpcount",
+		a.chcount AS "chcount",
+		a.sarea AS "sarea",
+		a.carea AS "carea",
+		a.elose AS "elose",
+		a.lgtd AS "lgtd",
+		a.lgtd AS "lttd",
+		a.remark AS "remark",
+		a.typ AS "typ"
+	</sql>
+
+    <resultMap type="com.jeesite.modules.ia.entity.IaZFlood" id="iamZFloodResult">
+        <id property="fcd" column="fcd" />
+        <result property="fname" column="fname" />
+        <result property="address" column="address" />
+        <result property="location" column="location" />
+        <result property="startdate" column="startdate" />
+        <result property="enddate" column="enddate" />
+        <result property="dyp" column="dyp" />
+        <result property="drp" column="drp" />
+        <result property="fdyp" column="fdyp" />
+        <result property="sdyp" column="sdyp" />
+        <result property="tdyp" column="tdyp" />
+        <result property="mxatmp" column="mxatmp" />
+        <result property="mnatmp" column="mnatmp" />
+        <result property="avgtmp" column="avgtmp" />
+        <result property="z" column="z" />
+        <result property="q" column="q" />
+        <result property="stnm" column="stnm" />
+        <result property="dep" column="dep" />
+        <result property="spcount" column="spcount" />
+        <result property="dpcount" column="dpcount" />
+        <result property="mpcount" column="mpcount" />
+        <result property="chcount" column="chcount" />
+        <result property="sarea" column="sarea" />
+        <result property="carea" column="carea" />
+        <result property="elose" column="elose" />
+        <result property="lgtd" column="lgtd" />
+        <result property="lttd" column="lttd" />
+        <result property="remark" column="remark" />
+        <result property="typ" column="typ" />
+        <collection property="pbaseList" ofType="com.jeesite.modules.ia.entity.IaPBase" javaType="ArrayList">
+            <result property="pid" column="pid" />
+            <result property="pname" column="pname" />
+            <result property="fpath" column="fpath" />
+            <result property="disc" column="disc" />
+        </collection>
+    </resultMap>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZFlood" resultMap = "iamZFloodResult">
+        SELECT
+        <include refid="iaZFloodColumns"/>
+        ,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+        FROM IA_Z_FLOOD a
+        left join rel_p_flood d on a.fcd = d.fcd
+        left join IA_P_BASE p on d.pid = p.pid
+        <where>
+            1=1
+            <if test="fname != null and fname != ''">
+                and a.fname like '%'+#{fname}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.startdate
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_Z_FLOOD(
+			fcd,
+			fname ,
+			address,
+			location,
+			startdate,
+			enddate,
+			dyp,
+			drp,
+			fdyp,
+			sdyp,
+			tdyp ,
+            mxatmp ,
+            mnatmp ,
+            avgtmp ,
+            z ,
+            q ,
+            stnm,
+            dep,
+            spcount,
+            dpcount,
+            mpcount,
+            chcount,
+            sarea,
+            carea,
+            elose,
+            lgtd,
+            lttd,
+            remark,
+            typ
+		) VALUES (
+			#{fcd},
+			#{fname},
+			#{address},
+			#{location},
+			#{startdate},
+			#{enddate},
+			#{dyp},
+			#{drp},
+			#{fdyp},
+			#{sdyp},
+			#{tdyp},
+			#{mxatmp},
+			#{mnatmp},
+			#{avgtmp},
+			#{z},
+			#{q},
+			#{stnm},
+			#{dep},
+			#{spcount},
+			#{dpcount},
+			#{mpcount},
+			#{chcount},
+			#{sarea},
+			#{carea},
+			#{elose},
+			#{lgtd},
+			#{lttd},
+			#{remark},
+			#{typ}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_Z_FLOOD SET
+		fname = #{fname},
+		address = #{address},
+		location = #{location},
+		startdate = #{startdate},
+		enddate = #{enddate},
+		dyp = #{dyp},
+		drp = #{drp},
+		fdyp = #{fdyp},
+		sdyp = #{sdyp},
+		tdyp = #{tdyp},
+		mxatmp = #{mxatmp},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		mnatmp = #{mnatmp},
+		avgtmp = #{avgtmp},
+		z = #{z},
+		q = #{q},
+		stnm = #{stnm},
+		dep = #{dep},
+		spcount = #{spcount},
+		dpcount = #{dpcount},
+		mpcount = #{mpcount},
+		chcount = #{chcount},
+		sarea = #{sarea},
+		elose = #{elose},
+		carea = #{carea},
+		remark = #{remark},
+		typ = #{typ}
+		WHERE fcd = #{fcd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_Z_FLOOD
+		WHERE fcd = #{fcd}
+	</update>
+</mapper>

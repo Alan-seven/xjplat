@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jeesite.modules.ia.dao.IaCSluiceDao">
+
+    <sql id="iaCSluiceColumns">
+		a.spcd AS "spcd",
+		a.gate_code AS "gatecode",
+		a.gate_name AS "gatename",
+		a.rv_code AS "rvcode",
+		a.wscd AS "wscd",
+		a.adcd AS "adcd",
+		a.gate_type AS "gatetype",
+		a.hole_num AS "holenum",
+		a.hole_wid AS "holewid",
+		a.fl_gate_flow AS "flgateflow",
+		a.rub_dam_hig AS "rubdamhig",
+		a.rub_dam_len AS "rubdamlen",
+		a.lgtd AS "lgtd",
+		a.lttd AS "lttd",
+		a.signer AS "signer",
+		a.audid AS "audid",
+		a.status AS "status",
+		a.moditime AS "moditime"
+	</sql>
+
+
+    <select id="get" resultType="com.jeesite.modules.ia.entity.IaCSluice">
+        SELECT <include refid="iaCSluiceColumns"/> , b.adnm as "adnm"
+        FROM IA_C_SLUICE a
+        WHERE spcd = #{spcd}
+    </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCSluice" >
+        SELECT
+        <include refid="iaCSluiceColumns"/>
+        ,info.adnm AS "adnm",c.wsnm AS "wsnm"
+        FROM IA_C_SLUICE a
+        left join ia_c_adinfo info on a.adcd = info.adcd
+        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+        <where>
+            1=1
+            <if test="gatename != null and gatename != ''">
+                and a.gate_name like '%'+#{gatename}+'%'
+            </if>
+            <if test="adcd  != null and adcd != ''">
+                and a.adcd = #{adcd}
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.moditime
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+		INSERT INTO IA_C_SLUICE(
+			spcd,
+			gate_code ,
+			gate_name,
+			adcd,
+			wscd,
+			rv_code,
+			gate_type,
+			hole_num,
+			hole_wid,
+			fl_gate_flow,
+			rub_dam_hig ,
+            rub_dam_len ,
+            lgtd ,
+            lttd ,
+            signer ,
+            audid ,
+            status
+		) VALUES (
+			#{spcd},
+			#{gatecode},
+			#{gatename},
+			#{adcd},
+			#{wscd},
+			#{rvcode},
+			#{gatetype},
+			#{holenum},
+			#{holewid},
+			#{flgateflow},
+			#{rubdamhig},
+			#{rubdamlen}
+			#{lgtd},
+			#{lttd},
+			#{signer},
+			#{audid},
+			#{status}
+		)
+	</insert>
+
+    <update id="update">
+		UPDATE IA_C_SLUICE SET
+		gate_code = #{gatecode},
+		gate_name = #{gatename},
+		adcd = #{adcd},
+		wscd = #{wscd},
+		rv_code = #{rvcode},
+		gate_type = #{gatetype},
+		hole_num = #{holenum},
+		hole_wid = #{holewid},
+		fl_gate_flow = #{flgateflow},
+		rub_dam_hig = #{rubdamhig},
+		rub_dam_len = #{rubdamlen},
+		lgtd = #{lgtd},
+		lttd = #{lttd},
+		signer = #{signer},
+		audid = #{audid},
+		status = #{status}
+		WHERE spcd = #{spcd}
+	</update>
+
+    <update id="delete">
+		DELETE FROM IA_C_SLUICE
+		WHERE spcd = #{spcd}
+	</update>
+</mapper>
