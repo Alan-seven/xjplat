@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPFlood
-        extends DataEntity<RelPFlood>
-{
+public class RelPFlood extends DataEntity<RelPFlood>{
     private String pid;
     private String fcd;
 

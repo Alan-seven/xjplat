@@ -20,9 +20,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/hsfmpar"})
 @Api(value="历史洪痕表头信息", tags={"历史洪痕表头接口"})
-public class IaMHsfmParentController
-        extends BaseController
-{
+public class IaMHsfmParentController extends BaseController{
+
     @Autowired
     private IaMHsfmParentService iaMHsfmParentService;
     @Autowired

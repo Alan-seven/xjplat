@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.RelPCulv;
 
 @MyBatisDao
-public abstract interface RelPCulvDao
-        extends CrudDao<RelPCulv>
-{}
+public interface RelPCulvDao extends CrudDao<RelPCulv>{
+
+}

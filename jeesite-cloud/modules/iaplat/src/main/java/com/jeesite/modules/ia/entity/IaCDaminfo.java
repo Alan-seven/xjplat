@@ -7,9 +7,7 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCDaminfo
-        extends DataEntity<IaCDaminfo>
-{
+public class IaCDaminfo extends DataEntity<IaCDaminfo>{
     private String damcd;
     private String damname;
     private String wscd;

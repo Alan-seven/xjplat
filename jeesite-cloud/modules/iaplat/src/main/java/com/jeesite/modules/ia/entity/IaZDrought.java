@@ -9,9 +9,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaZDrought
-        extends DataEntity<IaZDrought>
-{
+public class IaZDrought extends DataEntity<IaZDrought>{
     @ApiModelProperty("干旱编码")
     private String dcd;
     @ApiModelProperty("名称")

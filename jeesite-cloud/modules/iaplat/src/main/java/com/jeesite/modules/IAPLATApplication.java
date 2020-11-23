@@ -8,8 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringCloudApplication
 @EnableFeignClients(basePackages = {"com.jeesite.modules"})
-public class IAPLATApplication extends SpringBootServletInitializer
-{
+public class IAPLATApplication extends SpringBootServletInitializer{
     public static void main(String[] args) { SpringApplication.run(IAPLATApplication.class, args); }
 
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

@@ -1,7 +1,6 @@
 package com.jeesite.common.constraints;
 
-public class Violation
-{
+public class Violation{
     private String property;
     private String message;
 

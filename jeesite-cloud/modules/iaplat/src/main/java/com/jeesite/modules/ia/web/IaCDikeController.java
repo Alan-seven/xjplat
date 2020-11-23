@@ -19,9 +19,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/dike"})
 @Api(value="堤防基础", tags={"堤防基础接口"})
-public class IaCDikeController
-        extends BaseController
-{
+public class IaCDikeController extends BaseController{
+
     @Autowired
     private IaCDikeService iaCDikeService;
 

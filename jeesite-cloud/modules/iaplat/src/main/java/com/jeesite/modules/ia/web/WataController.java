@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/wata"})
 @Api(value="小流域基本信息（空间）", tags={"小流域基本信息（空间）接口"})
-public class WataController
-        extends BaseController
-{
+public class WataController  extends BaseController{
+
     @Autowired
     private WataService wataService;
 

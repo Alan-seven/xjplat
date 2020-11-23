@@ -18,7 +18,29 @@
 		a.comments AS "comments"
 	</sql>
 
-	<select id="get" resultType="com.jeesite.modules.ia.entity.IACAdinfo">
+	<resultMap type="com.jeesite.modules.ia.entity.IACAdinfo" id="iaCAdinfoResult">
+		<id property="adcd" column="adcd" />
+		<result property="adnm" column="adnm" />
+		<result property="pcount" column="pcount" />
+		<result property="htcount" column="htcount" />
+		<result property="ldarea" column="ldarea" />
+		<result property="plarea" column="plarea" />
+		<result property="prevtp" column="prevtp" />
+		<result property="lgtd" column="lgtd" />
+		<result property="lttd" column="lttd" />
+		<result property="signer" column="signer" />
+		<result property="audid" column="audid" />
+		<result property="status" column="status" />
+		<result property="comments" column="comments" />
+		<collection property="pinfoList" ofType="com.jeesite.modules.ia.entity.IAPInfo" javaType="ArrayList">
+			<result property="pid" column="pid" />
+			<result property="pname" column="pname" />
+			<result property="fpath" column="fpath" />
+			<result property="disc" column="disc" />
+		</collection>
+	</resultMap>
+
+	<select id="get" resultType="com.jeesite.modules.ia.entity.IACAdinfo" >
 		SELECT <include refid="iacAdinfoColumns"/>
 		FROM IA_C_ADINFO a
 		WHERE a.adcd = #{adcd}
@@ -35,6 +57,38 @@
 			</if>
 			<if test="adnm !=null and adnm != ''">
 				and a.adnm like '%'+#{adnm}+'%'
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.moditime
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IACAdinfo" resultMap="iaCAdinfoResult">
+		SELECT
+		<include refid="iacAdinfoColumns"/>
+		,v.pid AS "pid", v.pname AS "pname",v.fpath AS "fpath",v.disc  AS "disc"
+		FROM IA_C_ADINFO a
+		left join rel_p_v b on a.adcd = b.vecd
+		left join IA_P_INFO v on b.pid = v.pid
+		<where>
+			1=1
+			<if test="adcd != null and adcd != ''">
+				AND a.adcd = #{adcd}
+			</if>
+			<if test="adnm !=null and adnm != ''">
+				and a.adnm like '%'+#{adnm}+'%'
+			</if>
+			<if test ="relpList.size() > 0 ">
+				and	a.adcd in
+				<foreach collection="relpList" item="item" index="index" open="(" separator="," close=")">
+					#{item.vecd}
+				</foreach>
 			</if>
 		</where>
 		<choose>

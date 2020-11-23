@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPDrought
-        extends DataEntity<RelPDrought>
-{
+public class RelPDrought extends DataEntity<RelPDrought>{
     private String dcd;
     private String pid;
 

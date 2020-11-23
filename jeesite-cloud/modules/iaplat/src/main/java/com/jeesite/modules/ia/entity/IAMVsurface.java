@@ -8,9 +8,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IAMVsurface
-        extends DataEntity<IAMVsurface>
-{
+public class IAMVsurface extends DataEntity<IAMVsurface>{
     private String vecd;
     private String adcd;
     private String channel;

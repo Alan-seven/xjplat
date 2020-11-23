@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPV
-        extends DataEntity<RelPV>
-{
+public class RelPV extends DataEntity<RelPV>{
     private String pid;
     private String vecd;
 

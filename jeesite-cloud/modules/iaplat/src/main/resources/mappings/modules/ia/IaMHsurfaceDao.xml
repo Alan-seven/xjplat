@@ -108,15 +108,17 @@
 		<where>
 			1=1
 			<if test="adcd != null and adcd != ''">
-				and a.adcd like #{adcd}+'%'
+				and a.adcd = #{adcd}
 			</if>
 			<if test="vecd !=null and vecd != ''">
 				and a.vecd = #{vecd}
 			</if>
-			and	a.hecd in
-			<foreach collection="relphList" item="item" index="index" open="(" separator="," close=")">
-				#{item.hecd}
-			</foreach>
+			<if test ="relphList.size() > 0 ">
+				and	a.hecd in
+				<foreach collection="relphList" item="item" index="index" open="(" separator="," close=")">
+					#{item.hecd}
+				</foreach>
+			</if>
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">

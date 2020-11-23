@@ -49,13 +49,10 @@
     </resultMap>
 
 	<!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZDrought" resultMap = "iamZDroughtResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZDrought">
         SELECT
         <include refid="iaZDroughtColumns"/>
-        ,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
         FROM IA_Z_DROUGHT a
-        left join REL_P_DROUGHT d on a.dcd = d.dcd
-        left join IA_P_BASE p on d.pid = p.pid
         <where>
             1=1
             <if test="dname != null and dname != ''">
@@ -71,6 +68,35 @@
             </otherwise>
         </choose>
     </select>
+
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IaZDrought" resultMap = "iamZDroughtResult">
+		SELECT
+		<include refid="iaZDroughtColumns"/>
+		,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+		FROM IA_Z_DROUGHT a
+		left join REL_P_DROUGHT d on a.dcd = d.dcd
+		left join IA_P_BASE p on d.pid = p.pid
+		<where>
+			1=1
+			<if test="dname != null and dname != ''">
+				and a.dname like '%'+#{dname}+'%'
+			</if>
+			<if test ="relPDroughtList.size() > 0 ">
+				and	a.dcd in
+				<foreach collection="relPDroughtList" item="item" index="index" open="(" separator="," close=")">
+					#{item.dcd}
+				</foreach>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.startdate
+			</otherwise>
+		</choose>
+	</select>
 
     <insert id="insert">
 		INSERT INTO IA_Z_DROUGHT(

@@ -39,4 +39,8 @@ public class IAMVsurfaceService extends CrudService<IAMVsurfaceDao, IAMVsurface>
         page.setList(subList);
         return page;
     }
+
+    public List<IAMVsurface> findSubList(IAMVsurface entity){
+        return this.dao.findSubList(entity);
+    }
 }

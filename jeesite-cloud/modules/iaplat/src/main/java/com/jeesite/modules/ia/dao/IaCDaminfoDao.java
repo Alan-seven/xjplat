@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaCDaminfo;
 
 @MyBatisDao
-public abstract interface IaCDaminfoDao
-        extends CrudDao<IaCDaminfo>
-{}
+public interface IaCDaminfoDao extends CrudDao<IaCDaminfo>{
+
+}

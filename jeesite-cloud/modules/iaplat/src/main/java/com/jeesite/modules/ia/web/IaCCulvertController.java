@@ -20,9 +20,7 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/cul"})
 @Api(value="路涵基础", tags={"路涵基础接口"})
-public class IaCCulvertController
-        extends BaseController
-{
+public class IaCCulvertController extends BaseController{
     @Autowired
     private IaCCulvertService iaCCulvertService;
     @Autowired

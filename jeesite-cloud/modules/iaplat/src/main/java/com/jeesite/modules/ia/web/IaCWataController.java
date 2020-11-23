@@ -17,9 +17,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/cwata"})
 @Api(value="小流域基础信息", tags={"小流域基础信息接口"})
-public class IaCWataController
-        extends BaseController
-{
+public class IaCWataController extends BaseController{
+
     @Autowired
     private IaCWataService iaCWataService;
 

@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class IaPBase
-        extends DataEntity<IaPBase>
-{
+public class IaPBase extends DataEntity<IaPBase>{
     private String pid;
     private String pname;
     private String fpath;

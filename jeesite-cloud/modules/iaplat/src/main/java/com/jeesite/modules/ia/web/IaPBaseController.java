@@ -25,9 +25,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/pbase"})
 @Api(value="基础工程类图片", tags={"基础工程类图片接口"})
-public class IaPBaseController
-        extends BaseController
-{
+public class IaPBaseController extends BaseController{
+
     @Autowired
     private IaPBaseService iapBaseService;
 

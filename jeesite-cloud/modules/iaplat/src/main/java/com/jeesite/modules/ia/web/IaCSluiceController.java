@@ -18,9 +18,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/sluice"})
 @Api(value="水闸", tags={"水闸接口"})
-public class IaCSluiceController
-        extends BaseController
-{
+public class IaCSluiceController extends BaseController{
+
     @Autowired
     private IaCSluiceService iaCSluiceService;
 

@@ -4,9 +4,7 @@ import com.jeesite.common.entity.DataEntity;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class Wata
-        extends DataEntity<Wata>
-{
+public class Wata extends DataEntity<Wata>{
     private String wscd;
     private String wsnm;
     private String gb;

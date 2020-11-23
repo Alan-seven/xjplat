@@ -1,7 +1,6 @@
 package com.jeesite.modules.ia.entity;
 
-public class Dict
-{
+public class Dict{
     private String dictType;
     private String dictValue;
     private String dictLabel;

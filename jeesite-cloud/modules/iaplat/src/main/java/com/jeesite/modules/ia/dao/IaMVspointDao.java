@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaMVspoint;
 
 @MyBatisDao
-public abstract interface IaMVspointDao
-        extends CrudDao<IaMVspoint>
-{}
+public interface IaMVspointDao extends CrudDao<IaMVspoint>{
+
+}

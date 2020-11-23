@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/hsfm"})
 @Api(value="历史洪痕信息", tags={"历史洪痕接口"})
-public class IaMHsfmController
-        extends BaseController
-{
+public class IaMHsfmController extends BaseController{
+
     @Autowired
     private IaMHsfmService iaMHsfmService;
 

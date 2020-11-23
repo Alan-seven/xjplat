@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaCCulvert;
 
 @MyBatisDao
-public abstract interface IaCCulvertDao
-        extends CrudDao<IaCCulvert>
-{}
+public interface IaCCulvertDao extends CrudDao<IaCCulvert>{
+
+}

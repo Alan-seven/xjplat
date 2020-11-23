@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.Wata;
 
 @MyBatisDao
-public abstract interface WataDao
-        extends CrudDao<Wata>
-{}
+public interface WataDao extends CrudDao<Wata>{
+
+}

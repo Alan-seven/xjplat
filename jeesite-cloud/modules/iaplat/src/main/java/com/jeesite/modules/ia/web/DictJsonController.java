@@ -20,9 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/dict/"})
 @Api(value="字典匹配", tags={"字典匹配接口"})
-public class DictJsonController
-        extends BaseController
-{
+public class DictJsonController extends BaseController{
+
     @Autowired
     private DictDataService dictDataService;
 

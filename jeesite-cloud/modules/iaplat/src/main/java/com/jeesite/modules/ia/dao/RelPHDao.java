@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.RelPH;
 
 @MyBatisDao
-public abstract interface RelPHDao
-        extends CrudDao<RelPH>
-{}
+public interface RelPHDao extends CrudDao<RelPH>{
+
+}

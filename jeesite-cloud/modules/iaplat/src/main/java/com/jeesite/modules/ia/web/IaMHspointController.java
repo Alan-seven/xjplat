@@ -19,9 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/mhs"})
 @Api(value="横断面测量点", tags={"横断面测量点接口"})
-public class IaMHspointController
-        extends BaseController
-{
+public class IaMHspointController extends BaseController{
+
     @Autowired
     private IaMHspointService iaMHspointService;
 

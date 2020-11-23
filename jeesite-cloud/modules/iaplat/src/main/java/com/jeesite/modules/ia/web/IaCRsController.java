@@ -18,9 +18,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/icrs"})
 @Api(value="水库", tags={"水库接口"})
-public class IaCRsController
-        extends BaseController
-{
+public class IaCRsController extends BaseController{
+
     @Autowired
     private IaCRsService iaCRsService;
 

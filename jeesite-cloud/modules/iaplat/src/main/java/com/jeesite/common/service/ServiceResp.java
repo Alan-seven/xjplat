@@ -1,7 +1,6 @@
 package com.jeesite.common.service;
 
-public class ServiceResp
-{
+public class ServiceResp{
     private String code;
     private String msg;
 

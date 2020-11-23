@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaCDike;
 
 @MyBatisDao
-public abstract interface IaCDikeDao
-        extends CrudDao<IaCDike>
-{}
+public interface IaCDikeDao extends CrudDao<IaCDike>{
+
+}

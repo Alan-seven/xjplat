@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPH
-        extends DataEntity<RelPH>
-{
+public class RelPH extends DataEntity<RelPH>{
     private String pid;
     private String hecd;
 

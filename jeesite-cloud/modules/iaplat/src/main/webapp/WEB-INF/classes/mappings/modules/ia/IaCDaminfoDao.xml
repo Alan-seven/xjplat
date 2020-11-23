@@ -95,10 +95,12 @@
 			<if test="damname !=null and damname != ''">
 				and a.damname like '%'+#{damname}+'%'
 			</if>
-			and	a.damcd in
-			<foreach collection="relPDamList" item="item" index="index" open="(" separator="," close=")">
-				#{item.damcd}
-			</foreach>
+			<if test ="relPDamList.size() > 0 ">
+				and	a.damcd in
+				<foreach collection="relPDamList" item="item" index="index" open="(" separator="," close=")">
+					#{item.damcd}
+				</foreach>
+			</if>
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">

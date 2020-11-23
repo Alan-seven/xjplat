@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaMHsfm;
 
 @MyBatisDao
-public abstract interface IaMHsfmDao
-        extends CrudDao<IaMHsfm>
-{}
+public interface IaMHsfmDao extends CrudDao<IaMHsfm>{
+
+}

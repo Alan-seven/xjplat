@@ -48,9 +48,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/uploadData/"})
 @Api(value="上传数据", tags={"上传数据接口"})
-public class UploadDataController
-        extends BaseController
-{
+public class UploadDataController extends BaseController{
+
     @Autowired
     private IaMHsurfaceService iaMHsurfaceService;
     @Autowired

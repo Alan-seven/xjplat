@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IACPrevad
-        extends DataEntity<IACPrevad>
-{
+public class IACPrevad extends DataEntity<IACPrevad>{
     private String adcd;
     private int ptcount;
     private Float ldarea;

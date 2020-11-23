@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPHsfm
-        extends DataEntity<RelPHsfm>
-{
+public class RelPHsfm extends DataEntity<RelPHsfm>{
     private String pid;
     private String fmcd;
 

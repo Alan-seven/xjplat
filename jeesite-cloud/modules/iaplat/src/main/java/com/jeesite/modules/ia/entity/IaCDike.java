@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCDike
-        extends DataEntity<IaCDike>
-{
+public class IaCDike extends DataEntity<IaCDike>{
     private String dikecd;
     private String dikecode;
     private String dikename;

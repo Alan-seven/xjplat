@@ -20,9 +20,7 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/brid"})
 @Api(value="桥梁基础", tags={"桥梁基础接口"})
-public class IaCBridgeController
-        extends BaseController
-{
+public class IaCBridgeController extends BaseController{
     @Autowired
     private IaCBridgeService iaCBridgeService;
     @Autowired

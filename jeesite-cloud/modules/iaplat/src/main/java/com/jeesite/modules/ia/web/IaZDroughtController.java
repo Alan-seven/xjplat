@@ -19,9 +19,7 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/zdrought"})
 @Api(value="干旱信息", tags={"干旱接口"})
-public class IaZDroughtController
-        extends BaseController
-{
+public class IaZDroughtController extends BaseController{
     @Autowired
     private IaZDroughtService iaZDroughtService;
     @Autowired

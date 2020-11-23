@@ -3,9 +3,7 @@ package com.jeesite.modules.ia.entity;
 import com.jeesite.common.entity.DataEntity;
 import java.util.Date;
 
-public class IaCSrstInfo
-        extends DataEntity<IaCSrstInfo>
-{
+public class IaCSrstInfo extends DataEntity<IaCSrstInfo>{
     private String srstcd;
     private String address;
     private String wscd;

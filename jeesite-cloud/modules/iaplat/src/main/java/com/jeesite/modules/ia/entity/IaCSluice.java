@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCSluice
-        extends DataEntity<IaCSluice>
-{
+public class IaCSluice extends DataEntity<IaCSluice>{
     private String spcd;
     private String gatecode;
     private String gatename;

@@ -19,9 +19,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/zflood"})
 @Api(value="泥石流信息", tags={"泥石流接口"})
-public class IaZFloodController
-        extends BaseController
-{
+public class IaZFloodController extends BaseController{
+
     @Autowired
     private IaZFloodService iaZFloodService;
     @Autowired

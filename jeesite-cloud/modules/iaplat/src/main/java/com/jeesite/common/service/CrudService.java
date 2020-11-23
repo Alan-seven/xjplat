@@ -13,8 +13,7 @@ import com.jeesite.common.entity.Page;
 
 
 @Transactional(readOnly = true)
-public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<?>>
-        extends QueryService<D, T>
+public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<?>> extends QueryService<D, T>
 {
     @Transactional(readOnly = false)
     public List<T> findList(T entity){

@@ -73,13 +73,10 @@
     </resultMap>
 
 	<!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZFlood" resultMap = "iamZFloodResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaZFlood" >
         SELECT
         <include refid="iaZFloodColumns"/>
-        ,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
         FROM IA_Z_FLOOD a
-        left join rel_p_flood d on a.fcd = d.fcd
-        left join IA_P_BASE p on d.pid = p.pid
         <where>
             1=1
             <if test="fname != null and fname != ''">
@@ -95,6 +92,36 @@
             </otherwise>
         </choose>
     </select>
+
+	<!-- 演示Map参数和返回值，支持分页 -->
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IaZFlood" resultMap = "iamZFloodResult">
+		SELECT
+		<include refid="iaZFloodColumns"/>
+		,p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+		FROM IA_Z_FLOOD a
+		left join rel_p_flood d on a.fcd = d.fcd
+		left join IA_P_BASE p on d.pid = p.pid
+		<where>
+			1=1
+			<if test="fname != null and fname != ''">
+				and a.fname like '%'+#{fname}+'%'
+			</if>
+			<if test ="relPFloodList.size() > 0 ">
+				and	a.fcd in
+				<foreach collection="relPFloodList" item="item" index="index" open="(" separator="," close=")">
+					#{item.fcd}
+				</foreach>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.startdate
+			</otherwise>
+		</choose>
+	</select>
 
     <insert id="insert">
 		INSERT INTO IA_Z_FLOOD(

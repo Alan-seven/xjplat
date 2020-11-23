@@ -67,10 +67,12 @@
             <if test="channel != null and channel != ''">
                 AND a.channel like #{channel}+'%'
             </if>
-            and	a.fmcd in
-            <foreach collection="relphList" item="item" index="index" open="(" separator="," close=")">
-                #{item.fmcd}
-            </foreach>
+            <if test ="relphList.size() > 0 ">
+                and	a.fmcd in
+                <foreach collection="relphList" item="item" index="index" open="(" separator="," close=")">
+                    #{item.fmcd}
+                </foreach>
+            </if>
         </where>
         <choose>
             <when test="page !=null and page.orderBy != null and page.orderBy != ''">

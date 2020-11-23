@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPBridge
-        extends DataEntity<RelPBridge>
-{
+public class RelPBridge extends DataEntity<RelPBridge>{
     private String brcd;
     private String pid;
 

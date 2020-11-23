@@ -17,9 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/iacp"})
 @Api(value="防治区基本情况调查成果", tags={"防治区基本情况调查成果接口"})
-public class IACPrevadController
-        extends BaseController
-{
+public class IACPrevadController extends BaseController{
+
     @Autowired
     private IACPrevadService iacPrevadService;
 

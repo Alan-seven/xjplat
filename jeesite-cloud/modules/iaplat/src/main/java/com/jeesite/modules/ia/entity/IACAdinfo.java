@@ -1,15 +1,15 @@
 package com.jeesite.modules.ia.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.common.collect.Lists;
 import com.jeesite.common.entity.DataEntity;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IACAdinfo
-        extends DataEntity<IACAdinfo>
-{
+public class IACAdinfo extends DataEntity<IACAdinfo>{
     @ApiModelProperty("行政区代码")
     private String adcd;
     private String adnm;
@@ -25,6 +25,10 @@ public class IACAdinfo
     private String status;
     private String comments;
     private Date moditime;
+
+    //村落照片与纵断面照片共有同一套数据表
+    private List<RelPV> relpList = Lists.newArrayList();
+    private List<IAPInfo> pinfoList = Lists.newArrayList();
 
     @Length(min=0, max=15, message="行政区划代码长度不能超过 15 个字符")
     @NotNull(message="行政区划代码不可为空")
@@ -174,5 +178,21 @@ public class IACAdinfo
     public void setModitime(Date moditime)
     {
         this.moditime = moditime;
+    }
+
+    public List<RelPV> getRelpList() {
+        return relpList;
+    }
+
+    public void setRelpList(List<RelPV> relpList) {
+        this.relpList = relpList;
+    }
+
+    public List<IAPInfo> getPinfoList() {
+        return pinfoList;
+    }
+
+    public void setPinfoList(List<IAPInfo> pinfoList) {
+        this.pinfoList = pinfoList;
     }
 }

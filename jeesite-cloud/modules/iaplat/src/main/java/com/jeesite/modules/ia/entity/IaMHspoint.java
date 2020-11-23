@@ -5,9 +5,7 @@ import com.jeesite.common.entity.DataEntity;
 import java.util.Date;
 import org.hibernate.validator.constraints.Length;
 
-public class IaMHspoint
-        extends DataEntity<IaMHspoint>
-{
+public class IaMHspoint extends DataEntity<IaMHspoint>{
     private String hecd;
     private String pcode;
     private Float cdistance;

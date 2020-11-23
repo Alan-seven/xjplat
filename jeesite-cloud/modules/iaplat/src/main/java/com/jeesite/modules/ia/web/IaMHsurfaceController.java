@@ -21,9 +21,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/mh"})
 @Api(value="沟道横断面成果", tags={"沟道横断面成果接口"})
-public class IaMHsurfaceController
-        extends BaseController
-{
+public class IaMHsurfaceController extends BaseController{
+
     @Autowired
     private IaMHsurfaceService iaMHsurfaceService;
     @Autowired

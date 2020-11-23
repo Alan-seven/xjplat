@@ -10,8 +10,7 @@ import javax.validation.ValidatorFactory;
 
 
 
-public class ValidateUtils
-{
+public class ValidateUtils{
     public static List<Violation> validate(Object entity) {
         List<Violation> violations = Lists.newArrayList();
         ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();

@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class IAPInfo
-        extends DataEntity<IAPInfo>
-{
+public class IAPInfo extends DataEntity<IAPInfo>{
     private String pid;
     private String pname;
     private String fpath;

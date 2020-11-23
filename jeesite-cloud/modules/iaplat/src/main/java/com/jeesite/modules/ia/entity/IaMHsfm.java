@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaMHsfm
-        extends DataEntity<IaMHsfm>
-{
+public class IaMHsfm extends DataEntity<IaMHsfm>{
     private String fmcd;
     private Float lgtd;
     private Float lttd;

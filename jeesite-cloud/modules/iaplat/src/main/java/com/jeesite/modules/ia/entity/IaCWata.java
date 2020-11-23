@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCWata
-        extends DataEntity<IaCWata>
-{
+public class IaCWata extends DataEntity<IaCWata>{
     private String wscd;
     private String wsnm;
     private String naddress;

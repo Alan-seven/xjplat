@@ -20,9 +20,8 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/vsur"})
 @Api(value="沟道纵断面成果", tags={"沟道纵断面成果接口"})
-public class IAMVsurfaceController
-        extends BaseController
-{
+public class IAMVsurfaceController extends BaseController{
+
     @Autowired
     private IAMVsurfaceService iamVsurfaceService;
     @Autowired
@@ -61,7 +60,7 @@ public class IAMVsurfaceController
         RelPV relpv = new RelPV();
         relpv.setVecd(iamVsurface.getVecd());
 
-        ServiceResp serviceResp = this.relPVService.removeAll(relpv);
+        ServiceResp serviceResp = relPVService.removeAll(relpv);
 
         serviceResp = this.relPVService.batchSave(iamVsurface.getRelpList(), iamVsurface.getVecd());
         serviceResp = this.iamVsurfaceService.update(iamVsurface);

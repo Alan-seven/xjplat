@@ -2,9 +2,7 @@ package com.jeesite.modules.ia.entity;
 
 import com.jeesite.common.entity.DataEntity;
 
-public class RelPCulv
-        extends DataEntity<RelPCulv>
-{
+public class RelPCulv extends DataEntity<RelPCulv>{
     private String culcd;
     private String pid;
 

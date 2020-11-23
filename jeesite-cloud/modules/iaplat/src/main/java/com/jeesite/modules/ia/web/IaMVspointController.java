@@ -19,9 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/vsp"})
 @Api(value="沟道纵断面测量点", tags={"沟道纵断面测量点接口"})
-public class IaMVspointController
-        extends BaseController
-{
+public class IaMVspointController extends BaseController{
+
     @Autowired
     private IaMVspointService iaMVspointService;
 

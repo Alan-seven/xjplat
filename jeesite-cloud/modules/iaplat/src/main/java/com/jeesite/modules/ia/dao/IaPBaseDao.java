@@ -5,6 +5,6 @@ import com.jeesite.common.mybatis.annotation.MyBatisDao;
 import com.jeesite.modules.ia.entity.IaPBase;
 
 @MyBatisDao
-public abstract interface IaPBaseDao
-        extends CrudDao<IaPBase>
-{}
+public interface IaPBaseDao extends CrudDao<IaPBase>{
+
+}

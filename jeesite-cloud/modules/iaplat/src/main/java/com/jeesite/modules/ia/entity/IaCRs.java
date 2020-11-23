@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCRs
-        extends DataEntity<IaCRs>
-{
+public class IaCRs extends DataEntity<IaCRs>{
     private String rscd;
     private String rscode;
     private String rsname;

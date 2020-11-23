@@ -7,9 +7,7 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCBridge
-        extends DataEntity<IaCBridge>
-{
+public class IaCBridge extends DataEntity<IaCBridge>{
     private String brcd;
     private String brname;
     private String wscd;

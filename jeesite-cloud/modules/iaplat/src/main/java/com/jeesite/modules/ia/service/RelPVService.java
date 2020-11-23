@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(readOnly=true)
 public class RelPVService extends CrudService<RelPVDao, RelPV>{
+
     public ServiceResp batchSave(List<RelPV> list, String id)
     {
         list.removeAll(Collections.singleton(null));
@@ -38,14 +39,11 @@ public class RelPVService extends CrudService<RelPVDao, RelPV>{
     public ServiceResp removeAll(RelPV entity)
     {
         ServiceResp serviceResp = new ServiceResp();
-        try
-        {
-            ((RelPVDao)this.dao).delete(entity);
+        try{
+            this.dao.delete(entity);
             serviceResp.setCode("1");
             serviceResp.setMsg("操作成功");
-        }
-        catch (Exception e)
-        {
+        }catch (Exception e){
             serviceResp.setCode("0");
             serviceResp.setMsg("操作失败");
         }

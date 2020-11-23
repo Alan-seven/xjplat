@@ -6,9 +6,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaMHsfmParent
-        extends DataEntity<IaMHsfmParent>
-{
+public class IaMHsfmParent extends DataEntity<IaMHsfmParent>{
     private String fmcd;
     private String channel;
     private String address;

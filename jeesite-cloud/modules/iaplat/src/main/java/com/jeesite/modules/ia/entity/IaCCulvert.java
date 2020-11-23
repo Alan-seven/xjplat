@@ -8,9 +8,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaCCulvert
-        extends DataEntity<IaCCulvert>
-{
+public class IaCCulvert extends DataEntity<IaCCulvert>{
     private String culcd;
     private String culname;
     private String wscd;

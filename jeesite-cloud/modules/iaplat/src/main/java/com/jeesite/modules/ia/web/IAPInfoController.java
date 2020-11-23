@@ -25,9 +25,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/pinfo"})
 @Api(value="断面类图片", tags={"断面类图片接口"})
-public class IAPInfoController
-        extends BaseController
-{
+public class IAPInfoController extends BaseController{
+
     @Autowired
     private IAPInfoService iapInfoService;
 

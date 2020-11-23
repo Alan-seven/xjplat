@@ -6,9 +6,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaMVspoint
-        extends DataEntity<IaMVspoint>
-{
+public class IaMVspoint extends DataEntity<IaMVspoint>{
     private String vecd;
     private String pname;
     private Float cdistance;

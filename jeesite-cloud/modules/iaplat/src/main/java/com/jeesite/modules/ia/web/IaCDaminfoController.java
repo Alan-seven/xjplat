@@ -21,9 +21,7 @@ import com.jeesite.common.entity.Page;
 @Controller
 @RequestMapping({"${adminPath}/iaplat/dami"})
 @Api(value="塘坝基础", tags={"塘坝基础接口"})
-public class IaCDaminfoController
-        extends BaseController
-{
+public class IaCDaminfoController extends BaseController{
     @Autowired
     private IaCDaminfoService iaCDaminfoService;
     @Autowired
