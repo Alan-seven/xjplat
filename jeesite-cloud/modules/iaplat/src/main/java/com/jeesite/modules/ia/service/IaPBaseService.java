@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly=true)
-public class IaPBaseService
-        extends CrudService<IaPBaseDao, IaPBase>
-{}
+public class IaPBaseService extends CrudService<IaPBaseDao, IaPBase>{
+
+}

@@ -52,16 +52,10 @@
     </select>
 
 	<!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCCulvert" resultMap="iamCCulvertResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCCulvert" >
         SELECT
-        <include refid="iacCulvertColumns"/>
-        , b.adnm AS "adnm", c.wsnm AS "wsnm",
-        p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+        	<include refid="iacCulvertColumns"/>
         FROM IA_C_CULVERT a
-        LEFT JOIN IA_C_ADINFO b on a.adcd = b.adcd
-        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
-        left join rel_p_culv d on a.culcd = d.culcd
-        left join IA_P_BASE p on d.pid = p.pid
         <where>
             1=1
             <if test="adcd != null and adcd != ''">
@@ -80,6 +74,39 @@
             </otherwise>
         </choose>
     </select>
+
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IaCCulvert" resultMap="iamCCulvertResult">
+		SELECT
+		<include refid="iacCulvertColumns"/>
+		, b.adnm AS "adnm", c.wsnm AS "wsnm",
+		p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+		FROM IA_C_CULVERT a
+		LEFT JOIN IA_C_ADINFO b on a.adcd = b.adcd
+		LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+		left join rel_p_culv d on a.culcd = d.culcd
+		left join IA_P_BASE p on d.pid = p.pid
+		<where>
+			1=1
+			<if test="adcd != null and adcd != ''">
+				and a.adcd like #{adcd}+'%'
+			</if>
+			<if test="culname != null and culname != ''">
+				and a.culname like '%'+#{culname}+'%'
+			</if>
+			and	a.culcd in
+			<foreach collection="relPCulvList" item="item" index="index" open="(" separator="," close=")">
+				#{item.culcd}
+			</foreach>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.moditime
+			</otherwise>
+		</choose>
+	</select>
 
     <insert id="insert">
 		INSERT INTO IA_C_CULVERT(

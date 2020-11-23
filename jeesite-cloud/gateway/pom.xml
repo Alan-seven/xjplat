@@ -11,7 +11,7 @@
 	</parent>
 	
 	<artifactId>jeesite-cloud-gateway</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	
 	<name>JeeSite Cloud Gateway</name>
 	<url>http://jeesite.com</url>
@@ -19,7 +19,7 @@
 	
 	<properties>
 		
-		<finalName>web</finalName><!-- jar or war 包的名称 -->
+		<finalName>gateway-service</finalName><!-- jar or war 包的名称 -->
 		<start-class>com.jeesite.modules.GatewayApplication</start-class>
 		
 		<!-- environment setting -->

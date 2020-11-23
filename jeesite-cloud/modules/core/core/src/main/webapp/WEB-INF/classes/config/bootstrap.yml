@@ -75,3 +75,8 @@ spring:
 # 日志配置
 logging:
   config: classpath:config/logback-spring.xml
+
+service:
+  core:
+    name: jeesite-cloud-module-core
+    path: js

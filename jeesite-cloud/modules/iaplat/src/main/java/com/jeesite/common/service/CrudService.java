@@ -6,8 +6,9 @@ import com.jeesite.common.dao.CrudDao;
 import com.jeesite.common.entity.DataEntity;
 import com.jeesite.common.mapper.JsonMapper;
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.transaction.annotation.Transactional;
+import com.jeesite.common.entity.Page;
 
 
 
@@ -15,6 +16,11 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<?>>
         extends QueryService<D, T>
 {
+    @Transactional(readOnly = false)
+    public List<T> findList(T entity){
+        return this.dao.findList(entity);
+    }
+
     @Transactional(readOnly = false)
     public ServiceResp insert(T entity) {
         ServiceResp serviceResp = new ServiceResp();
@@ -110,4 +116,5 @@ public abstract class CrudService<D extends CrudDao<T>, T extends DataEntity<?>>
         }
         return serviceResp;
     }
+
 }

@@ -1,6 +1,5 @@
 package com.jeesite.modules.ia.web;
 
-import com.jeesite.common.entity.Page;
 import com.jeesite.common.idgen.IdGen;
 import com.jeesite.common.service.ServiceResp;
 import com.jeesite.common.web.BaseController;
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.jeesite.common.entity.Page;
 
 @Controller
 @RequestMapping({"${adminPath}/iaplat/sluice"})

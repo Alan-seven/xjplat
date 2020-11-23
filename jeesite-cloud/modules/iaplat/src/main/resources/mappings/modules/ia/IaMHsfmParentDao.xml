@@ -34,7 +34,27 @@
     </select>
 
     <!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMHsfmParent" resultMap="iaMHsfmParentResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaMHsfmParent" >
+        SELECT
+        <include refid="iaMHsfmParentColumns"/>
+        FROM IA_M_HSFM_PARENT a
+        <where>
+            1=1
+            <if test="channel != null and channel != ''">
+                AND a.channel like #{channel}+'%'
+            </if>
+        </where>
+        <choose>
+            <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+                ORDER BY ${page.orderBy}
+            </when>
+            <otherwise>
+                order by a.adcd
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="findSubList" resultType="com.jeesite.modules.ia.entity.IaMHsfmParent" resultMap="iaMHsfmParentResult">
         SELECT
         <include refid="iaMHsfmParentColumns"/>,
         info.adnm AS "adnm"
@@ -47,6 +67,10 @@
             <if test="channel != null and channel != ''">
                 AND a.channel like #{channel}+'%'
             </if>
+            and	a.fmcd in
+            <foreach collection="relphList" item="item" index="index" open="(" separator="," close=")">
+                #{item.fmcd}
+            </foreach>
         </where>
         <choose>
             <when test="page !=null and page.orderBy != null and page.orderBy != ''">

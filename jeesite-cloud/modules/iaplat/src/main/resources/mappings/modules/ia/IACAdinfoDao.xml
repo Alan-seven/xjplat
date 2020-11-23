@@ -24,7 +24,6 @@
 		WHERE a.adcd = #{adcd}
 	</select>
 
-	<!-- 演示Map参数和返回值，支持分页 -->
 	<select id="findList" resultType="com.jeesite.modules.ia.entity.IACAdinfo">
 		SELECT
 		<include refid="iacAdinfoColumns"/>

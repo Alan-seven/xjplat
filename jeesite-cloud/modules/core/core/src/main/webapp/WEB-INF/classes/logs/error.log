@@ -1,0 +1,2 @@
+2020-11-23 14:13:20.208 ERROR 18684 [-127.0.0.1_8848] [c.a.n.c.config.http.ServerHttpAgent    ] - [NACOS ConnectException httpPost] currentServerAddr: http://127.0.0.1:8848, err : Connection refused: connect
+2020-11-23 14:13:20.244 ERROR 18684 [-127.0.0.1_8848] [c.a.n.c.config.http.ServerHttpAgent    ] - [NACOS ConnectException httpPost] currentServerAddr: http://127.0.0.1:8848, err : Connection refused: connect

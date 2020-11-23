@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly=true)
-public class WataService
-        extends CrudService<WataDao, Wata>
-{}
+public class WataService extends CrudService<WataDao, Wata>{
+
+}

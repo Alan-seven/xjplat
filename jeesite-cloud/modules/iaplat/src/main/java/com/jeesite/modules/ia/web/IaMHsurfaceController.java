@@ -1,6 +1,5 @@
 package com.jeesite.modules.ia.web;
 
-import com.jeesite.common.entity.Page;
 import com.jeesite.common.idgen.IdGen;
 import com.jeesite.common.service.ServiceResp;
 import com.jeesite.common.web.BaseController;
@@ -9,12 +8,15 @@ import com.jeesite.modules.ia.entity.RelPH;
 import com.jeesite.modules.ia.service.IaMHsurfaceService;
 import com.jeesite.modules.ia.service.RelPHService;
 import io.swagger.annotations.Api;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.jeesite.common.entity.Page;
 
 @Controller
 @RequestMapping({"${adminPath}/iaplat/mh"})
@@ -29,7 +31,7 @@ public class IaMHsurfaceController
 
     @ResponseBody
     @RequestMapping({"list"})
-    public String list(@RequestBody IaMHsurface iamHsurface, HttpServletResponse response)
+    public String list(@RequestBody IaMHsurface iamHsurface, HttpServletRequest request, HttpServletResponse response)
     {
         iamHsurface.setPage(new Page(iamHsurface.getPageNo().intValue(), iamHsurface.getPageSize().intValue()));
         Page<IaMHsurface> page = this.iaMHsurfaceService.findPage(iamHsurface);

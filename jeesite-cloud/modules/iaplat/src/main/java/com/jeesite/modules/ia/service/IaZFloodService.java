@@ -8,6 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly=true)
-public class IaZFloodService
-        extends CrudService<IaZFloodDao, IaZFlood>
-{}
+public class IaZFloodService extends CrudService<IaZFloodDao, IaZFlood>{
+
+}

@@ -22,3 +22,27 @@
 2020-11-21 12:24:15,363 [main] WARN  [c.a.c.s.datasource.converter.SentinelConverter] SentinelConverter.java:80 - converter can not convert rules because source is empty
 2020-11-21 12:24:16,728 [main] INFO  [o.s.boot.web.embedded.netty.NettyWebServer] NettyWebServer.java:96 - Netty started on port(s): 8980
 2020-11-21 12:24:20,541 [main] INFO  [com.jeesite.modules.GatewayApplication] StartupInfoLogger.java:61 - Started GatewayApplication in 22.799 seconds (JVM running for 26.088)
+2020-11-23 08:56:10,005 [main] WARN  [c.a.cloud.nacos.client.NacosPropertySourceBuilder] NacosPropertySourceBuilder.java:87 - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-gateway] & group[jeesite-cloud-42]
+2020-11-23 08:56:10,052 [main] WARN  [c.a.cloud.nacos.client.NacosPropertySourceBuilder] NacosPropertySourceBuilder.java:87 - Ignore the empty nacos configuration and get it based on dataId[jeesite-cloud-gateway-default.yml] & group[jeesite-cloud-42]
+2020-11-23 08:56:10,053 [main] INFO  [o.s.c.b.c.PropertySourceBootstrapConfiguration] PropertySourceBootstrapConfiguration.java:112 - Located property source: [BootstrapPropertySource {name='bootstrapProperties-jeesite-cloud-gateway-default.yml,jeesite-cloud-42'}, BootstrapPropertySource {name='bootstrapProperties-jeesite-cloud-gateway.yml,jeesite-cloud-42'}, BootstrapPropertySource {name='bootstrapProperties-jeesite-cloud-gateway,jeesite-cloud-42'}]
+2020-11-23 08:56:10,073 [main] INFO  [com.jeesite.modules.GatewayApplication] SpringApplication.java:655 - The following profiles are active: default
+2020-11-23 08:56:10,847 [main] WARN  [o.springframework.boot.actuate.endpoint.EndpointId] EndpointId.java:155 - Endpoint ID 'nacos-config' contains invalid characters, please migrate to a valid format.
+2020-11-23 08:56:10,851 [main] WARN  [o.springframework.boot.actuate.endpoint.EndpointId] EndpointId.java:155 - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-11-23 08:56:11,053 [main] WARN  [o.springframework.boot.actuate.endpoint.EndpointId] EndpointId.java:155 - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-11-23 08:56:11,170 [main] INFO  [o.springframework.cloud.context.scope.GenericScope] GenericScope.java:295 - BeanFactory id=25bd2c67-573e-38ca-8696-ea5c5fc9537e
+2020-11-23 08:56:17,281 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [After]
+2020-11-23 08:56:17,282 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Before]
+2020-11-23 08:56:17,283 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Between]
+2020-11-23 08:56:17,283 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Cookie]
+2020-11-23 08:56:17,284 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Header]
+2020-11-23 08:56:17,284 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Host]
+2020-11-23 08:56:17,284 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Method]
+2020-11-23 08:56:17,284 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Path]
+2020-11-23 08:56:17,285 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Query]
+2020-11-23 08:56:17,285 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [ReadBodyPredicateFactory]
+2020-11-23 08:56:17,285 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [RemoteAddr]
+2020-11-23 08:56:17,285 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [Weight]
+2020-11-23 08:56:17,286 [main] INFO  [o.s.c.gateway.route.RouteDefinitionRouteLocator] RouteDefinitionRouteLocator.java:139 - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2020-11-23 08:56:20,962 [main] WARN  [c.a.c.s.datasource.converter.SentinelConverter] SentinelConverter.java:80 - converter can not convert rules because source is empty
+2020-11-23 08:56:22,361 [main] INFO  [o.s.boot.web.embedded.netty.NettyWebServer] NettyWebServer.java:109 - Netty started on port(s): 8980
+2020-11-23 08:56:25,489 [main] INFO  [com.jeesite.modules.GatewayApplication] StartupInfoLogger.java:61 - Started GatewayApplication in 20.749 seconds (JVM running for 23.944)

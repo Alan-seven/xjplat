@@ -76,7 +76,7 @@ public class UploadDataController
     @RequestMapping({"upload"})
     public void uploadData()
     {
-        String path = "E:\\颐信\\X-项目\\新疆山洪灾害\\达坂城区数据\\650107达坂城区";
+        String path = "E:\\颐信\\X-项目\\新疆山洪灾害\\650109米东区\\横纵断面表";
         File file = new File(path);
         fileList(file);
     }
@@ -97,6 +97,12 @@ public class UploadDataController
                     if ((suffix.startsWith("xls")) || (suffix.startsWith("xlxs")))
                     {
                         String type = findHVFile(f);
+                        if ("H".equals(type)) {
+                            ServiceResp localServiceResp = saveHm(fpath, f, suffix);
+                        }
+                        if ("V".equals(type)) {
+                            ServiceResp localServiceResp = saveVm(fpath, f, suffix);
+                        }
                         if ("L".equals(type)) {
                             ServiceResp localServiceResp = saveLm(fpath, f, suffix);
                         }

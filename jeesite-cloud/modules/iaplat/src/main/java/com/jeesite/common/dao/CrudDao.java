@@ -31,4 +31,6 @@ public interface CrudDao<T> extends QueryDao<T> {
     long deleteByEntity(T paramT);
 
     T get(T paramT);
+
+    List<T> findSubList(T paramT);
 }

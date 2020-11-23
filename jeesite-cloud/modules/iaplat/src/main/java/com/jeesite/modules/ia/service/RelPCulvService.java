@@ -11,9 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(readOnly=true)
-public class RelPCulvService
-        extends CrudService<RelPCulvDao, RelPCulv>
-{
+public class RelPCulvService extends CrudService<RelPCulvDao, RelPCulv>{
     public ServiceResp batchSave(List<RelPCulv> list, String id)
     {
         list.removeAll(Collections.singleton(null));

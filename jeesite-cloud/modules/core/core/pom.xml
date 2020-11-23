@@ -11,7 +11,7 @@
 	</parent>
 	
 	<artifactId>jeesite-cloud-module-core</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	
 	<name>JeeSite Cloud Module Core</name>
 	<url>http://jeesite.com</url>
@@ -19,7 +19,7 @@
 	
 	<properties>
 		
-		<finalName>web</finalName><!-- war or jar 包的名称 -->
+		<finalName>core-service</finalName><!-- war or jar 包的名称 -->
 		<start-class>com.jeesite.modules.CoreApplication</start-class>
 		
 		<!-- environment setting -->

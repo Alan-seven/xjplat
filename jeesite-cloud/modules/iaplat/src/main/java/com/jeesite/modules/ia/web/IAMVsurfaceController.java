@@ -8,13 +8,14 @@ import com.jeesite.modules.ia.entity.RelPV;
 import com.jeesite.modules.ia.service.IAMVsurfaceService;
 import com.jeesite.modules.ia.service.RelPVService;
 import io.swagger.annotations.Api;
-import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.jeesite.common.entity.Page;
 
 @Controller
 @RequestMapping({"${adminPath}/iaplat/vsur"})
@@ -31,9 +32,9 @@ public class IAMVsurfaceController
     @RequestMapping({"list"})
     public String list(@RequestBody IAMVsurface iamVsurface, HttpServletResponse response)
     {
-        List<IAMVsurface> list = this.iamVsurfaceService.findList(iamVsurface);
-
-        return renderResult("1", text("查询数据成功！", new String[0]), list);
+        iamVsurface.setPage(new Page(iamVsurface.getPageNo().intValue(), iamVsurface.getPageSize().intValue()));
+        Page<IAMVsurface> page = this.iamVsurfaceService.findPage(iamVsurface);
+        return renderResult("1", text("查询数据成功！", new String[0]), page);
     }
 
     @ResponseBody

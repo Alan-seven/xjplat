@@ -53,16 +53,10 @@
     </select>
 
     <!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCBridge" resultMap="iamCBridgeResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IaCBridge">
         SELECT
-        <include refid="iacBridgeColumns"/>
-        , b.adnm AS "adnm", c.wsnm AS "wsnm",
-        p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+        	<include refid="iacBridgeColumns"/>
         FROM IA_C_BRIDGE a
-        LEFT JOIN IA_C_ADINFO b on a.adcd = b.adcd
-        LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
-        left join rel_p_bridge d on a.brcd = d.brcd
-        left join IA_P_BASE p on d.pid = p.pid
         <where>
             1=1
             <if test="adcd != null and adcd != ''">
@@ -81,6 +75,39 @@
             </otherwise>
         </choose>
     </select>
+
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IaCBridge" resultMap="iamCBridgeResult">
+		SELECT
+		<include refid="iacBridgeColumns"/>
+		, b.adnm AS "adnm", c.wsnm AS "wsnm",
+		p.pid AS "pid", p.pname AS "pname",p.fpath AS "fpath",p.disc  AS "disc"
+		FROM IA_C_BRIDGE a
+		LEFT JOIN IA_C_ADINFO b on a.adcd = b.adcd
+		LEFT JOIN IA_C_WATA c on a.wscd = c.wscd
+		left join rel_p_bridge d on a.brcd = d.brcd
+		left join IA_P_BASE p on d.pid = p.pid
+		<where>
+			1=1
+			<if test="adcd != null and adcd != ''">
+				and a.adcd like #{adcd}+'%'
+			</if>
+			<if test="brname !=null and brname != ''">
+				and a.brname like '%'+#{brname}+'%'
+			</if>
+			and	a.brcd in
+			<foreach collection="relPBridgeList" item="item" index="index" open="(" separator="," close=")">
+				#{item.brcd}
+			</foreach>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.moditime
+			</otherwise>
+		</choose>
+	</select>
 
     <insert id="insert">
 		INSERT INTO IA_C_BRIDGE(

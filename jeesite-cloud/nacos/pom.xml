@@ -19,7 +19,7 @@
 
     <properties>
 
-        <finalName>web</finalName><!-- jar or war 包的名称 -->
+        <finalName>nacos-service</finalName><!-- jar or war 包的名称 -->
         <start-class>com.jeesite.modules.NacosApplication</start-class>
 
         <!-- environment setting -->

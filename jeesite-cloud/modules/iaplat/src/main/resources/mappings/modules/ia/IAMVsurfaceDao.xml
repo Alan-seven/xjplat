@@ -51,13 +51,11 @@
     </select>
 
     <!-- 演示Map参数和返回值，支持分页 -->
-    <select id="findList" resultType="com.jeesite.modules.ia.entity.IAMVsurface" resultMap="iamVsurfaceResult">
+    <select id="findList" resultType="com.jeesite.modules.ia.entity.IAMVsurface">
         SELECT
         <include refid="iamVsurfaceColumns"/>
-        ,v.pid AS "pid", v.pname AS "pname",v.fpath AS "fpath",v.disc  AS "disc" , info.adnm as "adnm"
+        ,info.adnm as "adnm"
         FROM IA_M_VSURFACE a
-        left join rel_p_v b on a.vecd = b.vecd
-        left join IA_P_INFO v on b.pid = v.pid
         left join ia_c_adinfo info on a.adcd = info.adcd
         <where>
             1=1
@@ -77,6 +75,37 @@
             </otherwise>
         </choose>
     </select>
+
+	<select id="findSubList" resultType="com.jeesite.modules.ia.entity.IAMVsurface" resultMap="iamVsurfaceResult">
+		SELECT
+		<include refid="iamVsurfaceColumns"/>
+		,v.pid AS "pid", v.pname AS "pname",v.fpath AS "fpath",v.disc  AS "disc" , info.adnm as "adnm"
+		FROM IA_M_VSURFACE a
+		left join rel_p_v b on a.vecd = b.vecd
+		left join IA_P_INFO v on b.pid = v.pid
+		left join ia_c_adinfo info on a.adcd = info.adcd
+		<where>
+			1=1
+			<if test="adcd != null and adcd != ''">
+				and a.adcd like #{adcd}+'%'
+			</if>
+			<if test="vecd !=null and vecd != ''">
+				and a.vecd = #{vecd}
+			</if>
+			and	a.vecd in
+			<foreach collection="relpList" item="item" index="index" open="(" separator="," close=")">
+				#{item.vecd}
+			</foreach>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				order by a.moditime
+			</otherwise>
+		</choose>
+	</select>
 
     <insert id="insert">
 		INSERT INTO IA_M_VSURFACE(

@@ -10,17 +10,17 @@
 		<relativePath>../../parent/pom.xml</relativePath>
 	</parent>
 	
-	<artifactId>jeesite-cloud-module-test1</artifactId>
-	<packaging>war</packaging>
+	<artifactId>jeesite-cloud-module-iaplat</artifactId>
+	<packaging>jar</packaging>
 	
-	<name>JeeSite Cloud Module Test1</name>
+	<name>JeeSite Cloud Module iaplat</name>
 	<url>http://jeesite.com</url>
 	<inceptionYear>2013-Now</inceptionYear>
 	
 	<properties>
 		
-		<finalName>web</finalName><!-- war包的名称 -->
-		<start-class>com.jeesite.modules.Test1Application</start-class>
+		<finalName>iaplat-service</finalName><!-- war包的名称 -->
+		<start-class>com.jeesite.modules.IAPLATApplication</start-class>
 		
 		<!-- environment setting -->
 		<eclipse-plugin-download-sources>false</eclipse-plugin-download-sources>

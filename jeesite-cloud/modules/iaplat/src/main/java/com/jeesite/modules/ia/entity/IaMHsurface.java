@@ -8,9 +8,7 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
-public class IaMHsurface
-        extends DataEntity<IaMHsurface>
-{
+public class IaMHsurface extends DataEntity<IaMHsurface>{
     private String hecd;
     private String adcd;
     private String channel;

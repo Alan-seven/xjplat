@@ -8,6 +8,8 @@ import com.jeesite.modules.ia.service.IaMVspointService;
 import io.swagger.annotations.Api;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,6 +27,7 @@ public class IaMVspointController
 
     @RequestMapping({"list"})
     @ResponseBody
+    @ApiOperation(value = "沟道纵断面数据", notes = "沟道纵断面数据不分页", httpMethod = "POST")
     public String list(@RequestBody IaMVspoint iaMVspoint, HttpServletResponse response)
     {
         List<IaMVspoint> list = this.iaMVspointService.findList(iaMVspoint);
